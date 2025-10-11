@@ -146,7 +146,8 @@ h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
 .cv .row .place,
 .cv .row .date {
   margin: 0;
-  color: color-mix(in oklch, var(--cool-gray) 70%, black);
+  color: black;
+  font-weight: 500;
 }
 
 /* headings */
@@ -208,6 +209,12 @@ h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
 .cv .project ul li {
   margin: 0.25rem 0;
 }
+
+/* extra gap before the next institution (CSU) */
+.cv [aria-labelledby="edu"] article + article h3 { margin-top: 0.9rem; }
+
+/* gap between consecutive projects */
+.cv .project + .project { margin-top: 1.1rem; }
 
 /* download link */
 .cv .download {
