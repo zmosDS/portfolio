@@ -129,10 +129,11 @@ h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
 .cv .row {
   display: grid;
   grid-template-columns: 1fr auto;
-  align-items: start;
-  gap: .5rem 1rem;
+  align-items: baseline;      /* keep degree + date on one line */
+  gap: .25rem 1rem;           /* tighter spacing */
 }
 .cv .row .right { text-align: right; white-space: nowrap; }
+.cv .row .right p { margin: 0; }   /* remove extra space on date/place */
 .cv .row .place { margin: 0; }
 .cv .row .date  { margin: 0; color: color-mix(in oklch, var(--cool-gray) 70%, black); }
 
@@ -145,9 +146,24 @@ h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
 .cv .bullets { margin: .35rem 0 0; }
 .cv .bullets li { margin: .2rem 0; }
 
+/* inline Associates (no gap) */
+.inline-degrees { margin: 0; }
+.inline-degrees em { font-style: italic; }
+
 /* links cluster on right side */
 .cv .links a { text-decoration: none; color: inherit; border-bottom: 2px solid var(--color-accent); }
 .cv .links a:hover { border-bottom-width: .4em; }
+
+/* project headers: title + links on one line (wrap below on small screens) */
+.proj-head {
+  display: flex;
+  align-items: baseline;
+  gap: .25rem 1rem;
+  flex-wrap: wrap;
+}
+.proj-head .title { flex: 1; min-width: 20ch; }
+.proj-head .links { margin: 0; white-space: nowrap; }
+@media (max-width: 560px) { .proj-head .links { width: 100%; } }
 
 /* download link */
 .cv .download { margin-top: .5rem; }
