@@ -104,3 +104,49 @@ form button {
 /* Finishing touches: heading hierarchy */
 h1 { font-size: 400%; line-height: 1.1; text-wrap: balance; }
 h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
+
+/*   RESUME   */
+/* Accent + typography helpers (if not already set) */
+:root { --cool-gray: oklch(80% 3% 200); }
+@supports not (color: oklch(0% 0 0)) { :root { --cool-gray: #9aa0a6; } }
+
+.cv {
+  max-width: 75ch;
+  margin: 2rem auto;
+  display: grid;
+  gap: 1.25rem;
+}
+
+/* section dividers */
+.cv section { padding-bottom: 1rem; border-bottom: 1px solid var(--cool-gray); }
+
+/* header */
+.cv-header h1 { margin: 0 0 .25rem; font-size: 280%; line-height: 1.1; }
+.cv-header p { margin: 0; }
+
+/* rows with right-aligned dates/places */
+.cv .row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: .5rem 1rem;
+}
+.cv .row .right { text-align: right; white-space: nowrap; }
+.cv .row .place { margin: 0; }
+.cv .row .date  { margin: 0; color: color-mix(in oklch, var(--cool-gray) 70%, black); }
+
+/* headings */
+.cv h2 { margin: .5rem 0; line-height: 1.1; text-wrap: balance; color: var(--color-accent); }
+.cv h3 { margin: 0; line-height: 1.15; }
+.cv .muted { opacity: .7; font-weight: 500; }
+
+/* lists */
+.cv .bullets { margin: .35rem 0 0; }
+.cv .bullets li { margin: .2rem 0; }
+
+/* links cluster on right side */
+.cv .links a { text-decoration: none; color: inherit; border-bottom: 2px solid var(--color-accent); }
+.cv .links a:hover { border-bottom-width: .4em; }
+
+/* download link */
+.cv .download { margin-top: .5rem; }
