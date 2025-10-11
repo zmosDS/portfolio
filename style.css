@@ -44,6 +44,9 @@ nav a:hover {
   padding-bottom: calc(0.5em - 0.4em);
 }
 
+
+/*   CONTACTS   */
+
 input, textarea, button {
   font: inherit;
 }
@@ -75,3 +78,29 @@ form textarea {
 form button {
   grid-column: 1 / -1;
 }
+
+
+/*   PROJECTS   */
+/* Grid of projects */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;
+  margin-block: 1rem;
+  grid-auto-rows: min-content; /* needed for subgrid rows */
+}
+
+/* Each card uses parent rows via subgrid and spans 3 rows: h2, img, p */
+.projects article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+}
+
+/* Card pieces */
+.projects h2 { margin: 0; }
+.projects img { width: 100%; height: auto; display: block; }
+
+/* Finishing touches: heading hierarchy */
+h1 { font-size: 400%; line-height: 1.1; text-wrap: balance; }
+h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
