@@ -6,3 +6,7 @@ body{
     max-width: 100ch;
     padding: 10px;
 }
+
+img {
+  max-width: 100%;
+}
