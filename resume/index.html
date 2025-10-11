@@ -18,9 +18,109 @@
 
     <h1>Resume</h1>
 
-    <embed src="https://zmosDS.github.io/portfolio/resume/Resume.pdf"
-    type="application/pdf"
-    style="width: 100%; height: 90vh; max-width: 100%;">
+    <main class="cv">
+    <header class="cv-header">
+      <h1>Your Name</h1>
+      <p>
+        <a href="mailto:zmosleymis@gmail.com">you@email.com</a> ·
+        <a href="https://github.com/zmosDS">github.com/YOURGH</a> ·
+        <a href="https://www.linkedin.com/in/zmosMIS">LinkedIn</a> · City, ST
+      </p>
+    </header>
+
+    <!-- EDUCATION -->
+    <section aria-labelledby="edu">
+      <h2 id="edu">Education</h2>
+
+      <article class="row">
+        <div class="left">
+          <h3>University of California, San Diego<span class="muted">Campus</span></h3>
+          <p><em>Master of Data Science</em></p>
+          <ul class="bullets">
+            <li>GPA 3.78 / 4.00</li>
+            <li>Coursework: Statistics, Linear Algebra, Big Data, NLP, Viz</li>
+          </ul>
+        </div>
+        <div class="right">
+          <p class="place">La Jolla, CA</p>
+          <p class="date">Expected Grad: <time datetime="2026-06">June 2026</time></p>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="left">
+          <h3>California State University, Sacramento<span class="muted">Campus</span></h3>
+          <p><em>B.S. Business Administration — MIS</em></p>
+          <ul class="bullets">
+            <li>GPA 3.80 / 4.00 · Magna Cum Laude · Dean’s List</li>
+            <li>Coursework: Data Mining, Advanced Analytics, ML, Data Mgmt</li>
+          </ul>
+        </div>
+        <div class="right">
+          <p class="place">Sacramento, CA</p>
+          <p class="date"><time datetime="2024-05">May 2024</time></p>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="left">
+          <h3>Community College</h3>
+          <p><em>A.S. in Accounting · A.S. in Business Administration</em></p>
+        </div>
+        <div class="right">
+          <p class="date"><time datetime="2021-05">May 2021</time></p>
+        </div>
+      </article>
+    </section>
+
+    <!-- PROJECTS -->
+    <section aria-labelledby="proj">
+      <h2 id="proj">Technical Projects</h2>
+
+      <article>
+        <header class="row">
+          <h3 class="left">Vehicle Value Estimator <span class="muted">(Personal Project)</span></h3>
+          <p class="right links">
+            <a href="https://github.com/zmosDS/Vehicle-Value-Estimator" target="_blank">Full Project</a>
+          </p>
+        </header>
+        <ul class="bullets">
+          <li>Built ETL pipeline to ingest/clean 80K+ listings from Cars.com.</li>
+          <li>Engineered features (trim, mileage, year, body style); price trends via EDA.</li>
+          <li>Trained LightGBM (MAE ~$1.7K, R² ≈ 0.96) on mixed features.</li>
+          <li>Deployed interactive Dash/Plotly app for real-time pricing insights.</li>
+        </ul>
+      </article>
+
+      <article>
+        <header class="row">
+          <h3 class="left">NYC Taxi Fare & Tipping Analysis <span class="muted">(Academic Project)</span></h3>
+          <p class="right links">
+            <a href="https://github.com/zmosDS/nyc-taxi-model-1" target="_blank">My Contributions</a> ·
+            <a href="https://github.com/rvasappa-ucsd/nyc-taxi-eda" target="_blank">Full Project</a>
+          </p>
+        </header>
+        <ul class="bullets">
+          <li>Analyzed 150M+ rides on SDSC supercomputer; 3rd place in competition.</li>
+          <li>EDA on 20GB+ trip data; engineered time/efficiency features; outlier handling.</li>
+          <li>Classifiers & regressors; LightGBM reduced RMSE by 36%; ~79% tip classifier accuracy.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- SKILLS -->
+    <section aria-labelledby="skills">
+      <h2 id="skills">Skills</h2>
+      <p><strong>Languages & Tools:</strong> Python (Pandas, NumPy, scikit-learn, Plotly, Matplotlib), SQL, Git, Tableau, Streamlit, Azure DevOps, Excel</p>
+      <p><strong>ML & Analytics:</strong> Regression, Classification, EDA, Feature Eng, Model Eval</p>
+      <p><strong>Data:</strong> Big Data, Spark, ETL</p>
+    </section>
+
+    <p class="download"><a href="/portfolio/resume/Resume.pdf" download>Download PDF</a></p>
+  </main>
+</body>
+</html>
+
  
 </body>
 </html>
