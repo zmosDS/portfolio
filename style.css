@@ -12,6 +12,11 @@ img {
   max-width: 100%;
 }
 
+html {
+  --color-accent: oklch(65% 50% 0);
+  accent-color: var(--color-accent);
+}
+
 nav {
   display: flex;
   margin-bottom: 1rem;
@@ -26,9 +31,15 @@ nav a {
   padding: 0.5em 0;
 }
 
-/* Style for the current page link */
+/* Current page link */
 nav a.current {
   border-bottom: 0.4em solid oklch(80% 3% 200);
+  padding-bottom: calc(0.5em - 0.4em);
+}
+
+/* Hover effect using accent color */
+nav a:hover {
+  border-bottom: 0.4em solid var(--color-accent);
   padding-bottom: calc(0.5em - 0.4em);
 }
 
