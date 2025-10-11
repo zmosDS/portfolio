@@ -129,13 +129,25 @@ h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
 .cv .row {
   display: grid;
   grid-template-columns: 1fr auto;
-  align-items: baseline;      /* keep degree + date on one line */
-  gap: .25rem 1rem;           /* tighter spacing */
+  align-items: baseline;
+  gap: 0.2rem 1rem;
 }
-.cv .row .right { text-align: right; white-space: nowrap; }
-.cv .row .right p { margin: 0; }   /* remove extra space on date/place */
-.cv .row .place { margin: 0; }
-.cv .row .date  { margin: 0; color: color-mix(in oklch, var(--cool-gray) 70%, black); }
+
+.cv .row .right {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.degree-line {
+  margin: 0;
+  font-style: italic;
+}
+
+.cv .row .place,
+.cv .row .date {
+  margin: 0;
+  color: color-mix(in oklch, var(--cool-gray) 70%, black);
+}
 
 /* headings */
 .cv h2 { margin: .5rem 0; line-height: 1.1; text-wrap: balance; color: var(--color-accent); }
