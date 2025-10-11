@@ -166,16 +166,54 @@ h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
 .cv .links a { text-decoration: none; color: inherit; border-bottom: 2px solid var(--color-accent); }
 .cv .links a:hover { border-bottom-width: .4em; }
 
-/* project headers: title + links on one line (wrap below on small screens) */
+/* projects on resume */
+.cv .project {
+  margin-bottom: 1.25rem;
+}
+
 .proj-head {
   display: flex;
+  justify-content: space-between;
   align-items: baseline;
-  gap: .25rem 1rem;
   flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin-bottom: 0.3rem;
 }
-.proj-head .title { flex: 1; min-width: 20ch; }
-.proj-head .links { margin: 0; white-space: nowrap; }
-@media (max-width: 560px) { .proj-head .links { width: 100%; } }
+
+.proj-head h3 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.proj-head .links {
+  margin: 0;
+  font-size: 0.95em;
+  white-space: nowrap;
+}
+
+.proj-head .links a {
+  text-decoration: none;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.proj-head .links a:hover {
+  border-bottom-width: 0.4em;
+}
+
+/* tighten list spacing */
+.cv .project ul {
+  margin-top: 0.3rem;
+  margin-bottom: 0.8rem;
+}
+.cv .project ul li {
+  margin: 0.25rem 0;
+}
+
+/* download link */
+.cv .download {
+  margin-top: 0.5rem;
+}
+
 
 /* download link */
 .cv .download { margin-top: .5rem; }
