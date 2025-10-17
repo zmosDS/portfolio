@@ -178,6 +178,25 @@ h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
   gap: 0.25rem 1rem;
   margin-bottom: 0.3rem;
 }
+
+/* align project titles + links properly */
+.proj-head .title {
+  flex: 1 1 20rem;
+}
+
+.proj-head .links {
+  margin-left: auto;
+  white-space: nowrap;
+  text-align: right;
+  flex-basis: auto;
+}
+
+@media (max-width: 700px) {
+  .proj-head .links {
+    flex-basis: 100%;
+  }
+}
+
 .proj-head h3 { margin: 0; font-weight: 600; }
 .proj-head .links { margin: 0; font-size: 0.95em; white-space: nowrap; }
 .proj-head .links a { text-decoration: none; border-bottom: 2px solid var(--color-accent); }
@@ -192,7 +211,14 @@ h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
 .cv .project + .project { margin-top: 1.1rem; }
 
 /* resume download link */
-.cv .download { margin-top: 0.5rem; }
+.cv .download a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 2px solid var(--color-accent);
+}
+.cv .download a:hover { border-bottom-width: .4em; }
+
 
 /* =========================
    THEME SWITCH (UI)
