@@ -52,7 +52,6 @@ nav a {
 /* current tab underline */
 nav a.current {
   font-weight: 700;
-  text-decoration: underline;
   border-bottom: 0.4em solid var(--cool-gray);
   padding-bottom: calc(0.5em - 0.4em);
 }
