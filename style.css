@@ -229,3 +229,47 @@ h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
 nav { display: flex; gap: 1rem; }
 nav a.current { font-weight: 700; text-decoration: underline; }
 
+/* Enable automatic dark/light */
+html {
+  color-scheme: light dark;   /* automatic based on OS */
+  background: canvas;         /* system background */
+  color: canvastext;          /* system text */
+}
+
+/* Border color that works in both modes */
+nav {
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* If you had a light-only hover bg before, switch to a mix */
+nav a:hover {
+  /* assumes you have --color-accent defined; if not, pick any accent color */
+  background-color: color-mix(in oklch, var(--color-accent, oklch(60% 0.12 200)), canvas 85%);
+}
+
+/* Dark mode switch UI (top-right) */
+label.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.875rem;
+  font-family: inherit;
+}
+label.color-scheme select {
+  font: inherit;
+}
+
+/* dark mode: keep light theme as-is, just make dark text readable */
+@media (prefers-color-scheme: dark) {
+  html { color-scheme: dark; }
+  body { background: canvas; color: canvastext; }
+
+  /* make right-side text readable in dark mode */
+  .right,
+  .date,
+  .place {
+    color: canvastext !important;
+  }
+}
+

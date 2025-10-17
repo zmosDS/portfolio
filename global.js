@@ -94,3 +94,48 @@ for (const p of pages) {
   nav.append(a);
 }
 
+// Dark mode switch
+// Creates a small "Theme" dropdown and wires it up to color-scheme.
+// Persists user choice in localStorage.
+
+(function () {
+  // Build the UI at the top of <body>
+  document.body.insertAdjacentHTML(
+    'afterbegin',
+    `
+      <label class="color-scheme">
+        Theme:
+        <select>
+          <option value="light dark">Automatic</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </label>
+    `
+  );
+
+  const select = document.querySelector('.color-scheme select');
+
+  function setColorScheme(value) {
+    // Apply to <html>
+    document.documentElement.style.setProperty('color-scheme', value);
+    // Keep the UI in sync
+    select.value = value;
+    // Persist (omit storage for "Automatic" so OS changes still take effect)
+    if (value === 'light dark') {
+      localStorage.removeItem('colorScheme');
+    } else {
+      localStorage.colorScheme = value;
+    }
+  }
+
+  // On load: use saved preference if present; otherwise stay automatic
+  const saved = localStorage.colorScheme;
+  setColorScheme(saved || 'light dark');
+
+  // React to user changes
+  select.addEventListener('input', (e) => {
+    setColorScheme(e.target.value);
+  });
+})();
+
