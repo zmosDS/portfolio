@@ -240,7 +240,7 @@ label.color-scheme select { font: inherit; }
   html { color-scheme: dark; }
   body { background: canvas; color: canvastext; }
 
-  /* resume right column text (Expected Grad / city) readable on dark */
+  /* resume right column text readable on dark */
   .right,
   .date,
   .place { color: canvastext !important; }
