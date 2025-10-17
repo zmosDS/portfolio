@@ -224,3 +224,8 @@ h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
 
 /* download link */
 .cv .download { margin-top: .5rem; }
+
+
+nav { display: flex; gap: 1rem; }
+nav a.current { font-weight: 700; text-decoration: underline; }
+

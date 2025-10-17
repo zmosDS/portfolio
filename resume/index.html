@@ -5,40 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume</title>
 
-    <link rel="stylesheet" href="/portfolio/style.css"> 
-    <script src="/portfolio/global.js"></script>
+    <link rel="stylesheet" href="../style.css"> 
 </head>
 <body>
-    <nav>
-      <a href="/portfolio/index.html">Home</a>
-      <a href="/portfolio/projects/index.html">Projects</a>
-      <a href="/portfolio/resume/index.html">Resume</a>
-      <a href="/portfolio/contact/index.html">Contact</a>
-      <a href="https://github.com/zmosDS" target="_blank">GitHub</a>
-    </nav>
-
-    <h1>Resume</h1>
+   <h1>Resume</h1>
 
     <main class="cv">
     <header class="cv-header">
       <h1>Zack Mosley</h1>
       <p>
-        <a href="https://www.linkedin.com/in/zmosMIS">LinkedIn</a> ·
-        <a href="https://github.com/zmosDS">GitHub</a> · Stockton, CA
+        <a href="https://www.linkedin.com/in/zmosMIS">LinkedIn</a>
       </p>
     </header>
+
+    <section class="cv-summary">
+      <h2>Summary</h2>
+        Data scientist with a background in operations leadership, 
+        focused on solving real business problems through data. 
+        Experienced in Python, pandas, and scikit-learn, 
+        developing and deploying machine learning models that translate 
+        complex data into actionable insights.
+</section>
 
     <!-- EDUCATION -->
 <section aria-labelledby="edu">
   <h2 id="edu">Education</h2>
 
   <article class="row">
-    <div class="left"><h3>University of California, San Diego</h3></div>
-    <div class="right"><p class="place">La Jolla, CA</p></div>
+    <div class="left"><h3>Master of Data Science</h3></div>
+    <div class="right"><p class="date">Expected Grad: <time datetime="2026-06">June 2026</time></p></div>
   </article>
   <article class="row">
-    <div class="left"><p class="degree-line"><em>Master of Data Science</em></p></div>
-    <div class="right"><p class="date">Expected Grad: <time datetime="2026-06">June 2026</time></p></div>
+    <div class="left"><p class="degree-line"><em>University of California, San Diego</em></p></div>
+    <div class="right"><p class="place">La Jolla, CA</p></div>
   </article>
   <article class="row">
     <div class="left">
@@ -51,12 +50,12 @@
   </article>
 
   <article class="row">
-    <div class="left"><h3>California State University, Sacramento</h3></div>
-    <div class="right"><p class="place">Sacramento, CA</p></div>
+    <div class="left"><h3>B.S. in Management Information Systems</h3></div>
+    <div class="right"><p class="date"><time datetime="2024-05">May 2024</time></p></div>
   </article>
   <article class="row">
-    <div class="left"><p class="degree-line"><em>B.S. Business Administration — MIS</em></p></div>
-    <div class="right"><p class="date"><time datetime="2024-05">May 2024</time></p></div>
+    <div class="left"><p class="degree-line"><em>California State University, Sacramento</em></p></div>
+    <div class="right"><p class="place">Sacramento, CA</p></div>
   </article>
   <article class="row">
     <div class="left">
@@ -68,11 +67,11 @@
     <div class="right"></div>
   </article>
   <article class="row">
-    <div class="left"><p class="degree-line"><em>Associate of Science in Accounting</em></p></div>
+    <div class="left"><p class="degree-line"><em>A.S. in Accounting</em></p></div>
     <div class="right"><p class="date"><time datetime="2021-05">May 2021</time></p></div>
   </article>
   <article class="row">
-    <div class="left"><p class="degree-line"><em>Associate of Science in Business Administration</em></p></div>
+    <div class="left"><p class="degree-line"><em>A.S. in Business Administration</em></p></div>
     <div class="right"></div>
   </article>
 </section>
@@ -121,6 +120,8 @@
 
     <p class="download"><a href="/portfolio/resume/Resume.pdf" download>Download Full Resume PDF</a></p>
   </main>
+
+  <script type="module" src="../global.js"></script>
 </body>
 </html>
 
