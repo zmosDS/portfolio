@@ -12,15 +12,33 @@ img {
   max-width: 100%;
 }
 
+/* =========================
+   THEME / ROOT 
+*/
+/* accent color */
+:root { --color-accent: oklch(64% 0.14 45); }   /* light */
+html  { accent-color: var(--color-accent); }
+
+/* subtle gray for dividers (fallback included) */
+:root { --cool-gray: oklch(80% 3% 200); }
+@supports not (color: oklch(0% 0 0)) { :root { --cool-gray: #9aa0a6; } }
+
+/* light/dark auto; keep light look, enable system dark */
 html {
-  --color-accent: oklch(65% 50% 0);
-  accent-color: var(--color-accent);
+  color-scheme: light dark;
+  background: canvas;
+  color: canvastext;
 }
 
+/* =========================
+   NAV (shared)
+*/
 nav {
   display: flex;
+  gap: 1rem;                 /* spacing between links */
   margin-bottom: 1rem;
-  border-bottom: 1px solid oklch(80% 3% 200);
+  --border-color: oklch(50% 10% 200 / 40%);  /* border tone */
+  border-bottom: 1px solid var(--border-color);
 }
 
 nav a {
@@ -31,86 +49,78 @@ nav a {
   padding: 0.5em 0;
 }
 
-/* Current page link */
+/* current tab underline */
 nav a.current {
-  border-bottom: 0.4em solid oklch(80% 3% 200);
+  font-weight: 700;
+  text-decoration: underline;
+  border-bottom: 0.4em solid var(--cool-gray);
   padding-bottom: calc(0.5em - 0.4em);
 }
 
-/* Hover effect using accent color */
+/* hover uses accent color */
 nav a:hover {
   background-color: oklch(from var(--color-accent) 95% 5% h);
   border-bottom: 0.4em solid var(--color-accent);
   padding-bottom: calc(0.5em - 0.4em);
 }
 
+/* inherit font, nicer defaults */
+input, textarea, button { font: inherit; }
 
-/*   CONTACTS   */
-
-input, textarea, button {
-  font: inherit;
-}
-
+/* =========================
+   CONTACT
+*/
 form {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 1em;
 }
-
 form label {
   display: grid;
   grid-template-columns: subgrid;
   grid-column: 1 / -1;
 }
-
 form label > span {
   grid-column: 1;
   align-self: center;
 }
-
 form input,
 form textarea {
   grid-column: 2;
   width: 100%;
   box-sizing: border-box;
 }
-
 form button {
   grid-column: 1 / -1;
 }
 
-
-/*   PROJECTS   */
-/* Grid of projects */
+/* =========================
+   PROJECTS 
+*/
+/* card grid (card width: adjust 15em if needed) */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   gap: 1em;
   margin-block: 1rem;
-  grid-auto-rows: min-content; /* needed for subgrid rows */
+  grid-auto-rows: min-content; /* subgrid rows */
 }
-
-/* Each card uses parent rows via subgrid and spans 3 rows: h2, img, p */
 .projects article {
   display: grid;
   grid-template-rows: subgrid;
-  grid-row: span 3;
+  grid-row: span 3;          /* h2, img, p */
 }
-
-/* Card pieces */
 .projects h2 { margin: 0; }
 .projects img { width: 100%; height: auto; display: block; }
 
-/* Finishing touches: heading hierarchy */
+/* heading rhythm */
 h1 { font-size: 400%; line-height: 1.1; text-wrap: balance; }
 h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
 
-
-/*   RESUME   */
-/* Accent + typography helpers (if not already set) */
-:root { --cool-gray: oklch(80% 3% 200); }
-@supports not (color: oklch(0% 0 0)) { :root { --cool-gray: #9aa0a6; } }
-
+/* =========================
+   RESUME
+*/
+/* page width for resume (adjust 75ch if needed) */
 .cv {
   max-width: 75ch;
   margin: 2rem auto;
@@ -118,12 +128,15 @@ h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
   gap: 1.25rem;
 }
 
-/* section dividers */
-.cv section { padding-bottom: 1rem; border-bottom: 1px solid var(--cool-gray); }
+/* section rules */
+.cv section {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--cool-gray);
+}
 
 /* header */
 .cv-header h1 { margin: 0 0 .25rem; font-size: 280%; line-height: 1.1; }
-.cv-header p { margin: 0; }
+.cv-header p  { margin: 0; }
 
 /* rows with right-aligned dates/places */
 .cv .row {
@@ -132,25 +145,13 @@ h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
   align-items: baseline;
   gap: 0.2rem 1rem;
 }
+.cv .row .right { text-align: right; white-space: nowrap; }
 
-.cv .row .right {
-  text-align: right;
-  white-space: nowrap;
-}
-
-.degree-line {
-  margin: 0;
-  font-style: italic;
-}
-
+.degree-line { margin: 0; font-style: italic; }
 .cv .row .place,
-.cv .row .date {
-  margin: 0;
-  color: black;
-  font-weight: 500;
-}
+.cv .row .date { margin: 0; color: black; font-weight: 500; }
 
-/* headings */
+/* headings inside resume use accent color */
 .cv h2 { margin: .5rem 0; line-height: 1.1; text-wrap: balance; color: var(--color-accent); }
 .cv h3 { margin: 0; line-height: 1.15; }
 .cv .muted { opacity: .7; font-weight: 500; }
@@ -159,19 +160,16 @@ h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
 .cv .bullets { margin: .35rem 0 0; }
 .cv .bullets li { margin: .2rem 0; }
 
-/* inline Associates (no gap) */
+/* inline degrees (no gap) */
 .inline-degrees { margin: 0; }
 .inline-degrees em { font-style: italic; }
 
-/* links cluster on right side */
+/* links on right side use accent underline */
 .cv .links a { text-decoration: none; color: inherit; border-bottom: 2px solid var(--color-accent); }
 .cv .links a:hover { border-bottom-width: .4em; }
 
-/* projects on resume */
-.cv .project {
-  margin-bottom: 1.25rem;
-}
-
+/* project blocks */
+.cv .project { margin-bottom: 1.25rem; }
 .proj-head {
   display: flex;
   justify-content: space-between;
@@ -180,75 +178,25 @@ h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
   gap: 0.25rem 1rem;
   margin-bottom: 0.3rem;
 }
+.proj-head h3 { margin: 0; font-weight: 600; }
+.proj-head .links { margin: 0; font-size: 0.95em; white-space: nowrap; }
+.proj-head .links a { text-decoration: none; border-bottom: 2px solid var(--color-accent); }
+.proj-head .links a:hover { border-bottom-width: 0.4em; }
 
-.proj-head h3 {
-  margin: 0;
-  font-weight: 600;
-}
+/* tighter lists */
+.cv .project ul { margin-top: 0.3rem; margin-bottom: 0.8rem; }
+.cv .project ul li { margin: 0.25rem 0; }
 
-.proj-head .links {
-  margin: 0;
-  font-size: 0.95em;
-  white-space: nowrap;
-}
-
-.proj-head .links a {
-  text-decoration: none;
-  border-bottom: 2px solid var(--color-accent);
-}
-
-.proj-head .links a:hover {
-  border-bottom-width: 0.4em;
-}
-
-/* tighten list spacing */
-.cv .project ul {
-  margin-top: 0.3rem;
-  margin-bottom: 0.8rem;
-}
-.cv .project ul li {
-  margin: 0.25rem 0;
-}
-
-/* extra gap before the next institution (CSU) */
+/* spacing school and projects */
 .cv [aria-labelledby="edu"] article + article h3 { margin-top: 0.9rem; }
-
-/* gap between consecutive projects */
 .cv .project + .project { margin-top: 1.1rem; }
 
-/* download link */
-.cv .download {
-  margin-top: 0.5rem;
-}
+/* resume download link */
+.cv .download { margin-top: 0.5rem; }
 
-
-/* download link */
-.cv .download { margin-top: .5rem; }
-
-
-nav { display: flex; gap: 1rem; }
-nav a.current { font-weight: 700; text-decoration: underline; }
-
-/* Enable automatic dark/light */
-html {
-  color-scheme: light dark;   /* automatic based on OS */
-  background: canvas;         /* system background */
-  color: canvastext;          /* system text */
-}
-
-/* Border color that works in both modes */
-nav {
-  --border-color: oklch(50% 10% 200 / 40%);
-  border-bottom: 1px solid var(--border-color);
-}
-
-/* If you had a light-only hover bg before, switch to a mix */
-nav a:hover {
-  /* assumes you have --color-accent defined; if not, pick any accent color */
-  background-color: color-mix(in oklch, var(--color-accent, oklch(60% 0.12 200)), canvas 85%);
-}
-
-/* Dark mode switch UI (top-right) */
+/* =========================
+   THEME SWITCH (UI)
+*/
 label.color-scheme {
   position: absolute;
   top: 1rem;
@@ -256,20 +204,20 @@ label.color-scheme {
   font-size: 0.875rem;
   font-family: inherit;
 }
-label.color-scheme select {
-  font: inherit;
-}
+label.color-scheme select { font: inherit; }
 
-/* dark mode: keep light theme as-is, just make dark text readable */
+/* =========================
+   DARK MODE
+   (light theme untouched)
+*/
 @media (prefers-color-scheme: dark) {
   html { color-scheme: dark; }
   body { background: canvas; color: canvastext; }
 
-  /* make right-side text readable in dark mode */
+  /* resume right column text (Expected Grad / city) readable on dark */
   .right,
   .date,
-  .place {
-    color: canvastext !important;
-  }
+  .place { color: canvastext !important; }
 }
+
 
