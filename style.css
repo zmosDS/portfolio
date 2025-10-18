@@ -16,12 +16,12 @@ img {
    THEME / ROOT 
 */
 /* accent color */
-:root { --color-accent: oklch(64% 0.14 45); }   /* light */
+:root { --color-accent: oklch(64% 0.17 45); }   /* light */
 html  { accent-color: var(--color-accent); }
 
 /* subtle gray for dividers (fallback included) */
-:root { --cool-gray: oklch(80% 3% 200); }
-@supports not (color: oklch(0% 0 0)) { :root { --cool-gray: #9aa0a6; } }
+:root { --cool-gray: oklch(64% 0.17 45); }
+@supports not (color: oklch(0% 0 0)) { :root { --cool-gray: #de6118; } }
 
 /* light/dark auto; keep light look, enable system dark */
 html {
@@ -36,6 +36,7 @@ html {
 nav {
   display: flex;
   gap: 1rem;                 /* spacing between links */
+  margin-top: 2.5rem;
   margin-bottom: 1rem;
   --border-color: oklch(50% 10% 200 / 40%);  /* border tone */
   border-bottom: 1px solid var(--border-color);
