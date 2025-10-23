@@ -266,9 +266,30 @@ label.color-scheme select { font: inherit; }
 }
 
 .profile-pic {
-  width: 100px;       /* adjust as needed */
+  width: 500px;       /* adjust as needed */
   height: auto;       /* keeps the proportions */
   border-radius: 12px; /* optional, soft corners */
   display: block;
   margin: 20px auto;  /* centers it */
+}
+
+.intro-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem; /* space between text and image */
+  flex-wrap: wrap; /* makes it responsive */
+  margin-bottom: 2rem;
+}
+
+.intro-text {
+  flex: 1 1 60%; /* allow it to shrink or grow */
+  max-width: 600px;
+}
+
+.profile-pic {
+  width: 200px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
 }
