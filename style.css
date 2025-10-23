@@ -264,3 +264,11 @@ label.color-scheme select { font: inherit; }
   grid-row: 2; /* force all <dd> elements into second row */
   margin: 0; /* remove default margins */
 }
+
+.profile-pic {
+  width: 100px;       /* adjust as needed */
+  height: auto;       /* keeps the proportions */
+  border-radius: 12px; /* optional, soft corners */
+  display: block;
+  margin: 20px auto;  /* centers it */
+}
