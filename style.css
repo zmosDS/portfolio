@@ -247,3 +247,20 @@ label.color-scheme select { font: inherit; }
 }
 
 
+/* Displaying github stats
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* four equal columns */
+  gap: 0.5rem; /* space between columns */
+  text-align: center;
+}
+
+#profile-stats dt {
+  grid-row: 1; /* force all <dt> elements into first row */
+  font-weight: bold;
+}
+
+#profile-stats dd {
+  grid-row: 2; /* force all <dd> elements into second row */
+  margin: 0; /* remove default margins */
+}
