@@ -1,5 +1,5 @@
 // Importing function
-import { fetchJSON, renderProjects, fetchGithubData } from './global.js';
+import { fetchJSON, renderProjects, fetchGitHubData } from './global.js';
 
 // Fetch and filter projects
 const projects = await fetchJSON('./lib/projects.json');
@@ -7,7 +7,6 @@ const latestProjects = projects.slice(0, 3);
 
 // Projects container
 const projectsContainer = document.querySelector('.projects');
-<div class="projects"></div>
 
 // Render latest projects
 renderProjects(latestProjects, projectsContainer, 'h2');
