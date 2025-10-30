@@ -1,44 +1,52 @@
-body{
-    /* Set line height to 1.5 times the font size
-    and use the OS's UI font as the website font
-    */
-    font: 100%/1.5 system-ui;
-    max-width: 100ch;
-    padding: 20px;
-    margin: 0 auto;
+/* =========================================
+   BASE STYLES
+   ========================================= */
+
+/* ---- Body ---- */
+body {
+  /* Font: system default, comfortable line height */
+  font: 100%/1.5 system-ui;
+  max-width: 100ch;
+  padding: 20px;
+  margin: 0 auto;
 }
 
+/* ---- Images ---- */
 img {
   max-width: 100%;
 }
 
-/* =========================
-   THEME / ROOT 
-*/
-/* accent color */
-:root { --color-accent: oklch(64% 0.17 45); }   /* light */
+/* =========================================
+   THEME / ROOT VARIABLES
+   ========================================= */
+
+/* ---- Accent Colors ---- */
+:root { --color-accent: oklch(64% 0.17 45); }   /* main accent color (light) */
 html  { accent-color: var(--color-accent); }
 
-/* subtle gray for dividers (fallback included) */
+/* ---- Fallbacks ---- */
 :root { --orange: oklch(64% 0.17 45); }
-@supports not (color: oklch(0% 0 0)) { :root { --orange: #de6118; } }
+@supports not (color: oklch(0% 0 0)) { 
+  :root { --orange: #de6118; } /* fallback for older browsers */
+}
 
-/* light/dark auto; keep light look, enable system dark */
+/* ---- Light / Dark Mode ---- */
 html {
   color-scheme: light dark;
   background: canvas;
   color: canvastext;
 }
 
-/* =========================
-   NAV (shared)
-*/
+/* =========================================
+   NAVIGATION (shared)
+   ========================================= */
+
 nav {
   display: flex;
-  gap: 1rem;                 /* spacing between links */
+  gap: 1rem;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
-  --border-color: oklch(50% 10% 200 / 40%);  /* border tone */
+  --border-color: oklch(50% 10% 200 / 40%);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -50,77 +58,136 @@ nav a {
   padding: 0.5em 0;
 }
 
-/* current tab underline */
+/* ---- Active Tab ---- */
 nav a.current {
   font-weight: 700;
   border-bottom: 0.4em solid var(--orange);
   padding-bottom: calc(0.5em - 0.4em);
 }
 
-/* hover uses accent color */
+/* ---- Hover State ---- */
 nav a:hover {
   background-color: oklch(from var(--color-accent) 95% 5% h);
   border-bottom: 0.4em solid var(--color-accent);
   padding-bottom: calc(0.5em - 0.4em);
 }
 
-/* inherit font, nicer defaults */
-input, textarea, button { font: inherit; }
+/* ---- Form Elements (inherit font) ---- */
+input, textarea, button { 
+  font: inherit; 
+}
 
-/* =========================
-   CONTACT
-*/
+/* =========================================
+   INTRO SECTION HOME PAGE (TEXT + IMAGE)
+   ========================================= */
+
+.intro-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.intro-text {
+  flex: 1 1 60%;
+  max-width: 600px;
+}
+
+/* =========================================
+   CONTACT FORM
+   ========================================= */
+
 form {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 1em;
 }
+
 form label {
   display: grid;
   grid-template-columns: subgrid;
   grid-column: 1 / -1;
 }
+
 form label > span {
   grid-column: 1;
   align-self: center;
 }
+
 form input,
 form textarea {
   grid-column: 2;
   width: 100%;
   box-sizing: border-box;
 }
+
 form button {
   grid-column: 1 / -1;
 }
 
-/* =========================
-   PROJECTS 
-*/
-/* card grid (card width: adjust 15em if needed) */
+/* =========================================
+   PROJECTS SECTION
+   ========================================= */
+
+/* ---- Project Grid ---- */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   gap: 1em;
   margin-block: 1rem;
-  grid-auto-rows: min-content; /* subgrid rows */
+  grid-auto-rows: min-content; /* ensures consistent row height */
 }
+
+/* ---- Project Card ---- */
 .projects article {
   display: grid;
   grid-template-rows: subgrid;
-  grid-row: span 3;          /* h2, img, p */
+  grid-row: span 3;  /* h2, img, p */
 }
+
+/* ---- Titles & Images ---- */
 .projects h2 { margin: 0; }
 .projects img { width: 100%; height: auto; display: block; }
 
-/* heading rhythm */
-h1 { font-size: 400%; line-height: 1.1; text-wrap: balance; }
-h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
+/* ---- Description + Year Wrapper ---- */
+.project-info {
+  margin-top: 0.5em;
+}
 
-/* =========================
-   RESUME
-*/
-/* page width for resume (adjust 75ch if needed) */
+.project-info p {
+  margin: 0.25em 0;
+}
+
+/* ---- Year Styling ---- */
+.project-year {
+  font-size: 0.9rem;
+  color: var(--orange);
+  opacity: 0.8;
+  font-style: italic;
+}
+
+/* =========================================
+   HEADINGS
+   ========================================= */
+
+h1 { 
+  font-size: 400%; 
+  line-height: 1.1; 
+  text-wrap: balance; 
+}
+
+h2, h3, h4, h5, h6 { 
+  line-height: 1.1; 
+  text-wrap: balance; 
+}
+
+/* =========================================
+   RESUME SECTION
+   ========================================= */
+
+/* ---- Page Layout ---- */
 .cv {
   max-width: 75ch;
   margin: 2rem auto;
@@ -128,48 +195,82 @@ h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
   gap: 1.25rem;
 }
 
-/* section rules */
+/* ---- Section Dividers ---- */
 .cv section {
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--orange);
 }
 
-/* header */
-.cv-header h1 { margin: 0 0 .25rem; font-size: 280%; line-height: 1.1; }
-.cv-header p  { margin: 0; }
+/* ---- Header ---- */
+.cv-header h1 { 
+  margin: 0 0 .25rem; 
+  font-size: 280%; 
+  line-height: 1.1; 
+}
+.cv-header p { margin: 0; }
 
-/* rows with right-aligned dates/places */
+/* ---- Rows with Right-Aligned Info ---- */
 .cv .row {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: baseline;
   gap: 0.2rem 1rem;
 }
-.cv .row .right { text-align: right; white-space: nowrap; }
 
-.degree-line { margin: 0; font-style: italic; }
+.cv .row .right { 
+  text-align: right; 
+  white-space: nowrap; 
+}
+
+.degree-line { 
+  margin: 0; 
+  font-style: italic; 
+}
+
 .cv .row .place,
-.cv .row .date { margin: 0; color: black; font-weight: 500; }
+.cv .row .date { 
+  margin: 0; 
+  color: black; 
+  font-weight: 500; 
+}
 
-/* headings inside resume use accent color */
-.cv h2 { margin: .5rem 0; line-height: 1.1; text-wrap: balance; color: var(--color-accent); }
-.cv h3 { margin: 0; line-height: 1.15; }
-.cv .muted { opacity: .7; font-weight: 500; }
+/* ---- Resume Headings ---- */
+.cv h2 { 
+  margin: .5rem 0; 
+  line-height: 1.1; 
+  text-wrap: balance; 
+  color: var(--color-accent); 
+}
+.cv h3 { 
+  margin: 0; 
+  line-height: 1.15; 
+}
+.cv .muted { 
+  opacity: .7; 
+  font-weight: 500; 
+}
 
-/* lists */
+/* ---- Lists ---- */
 .cv .bullets { margin: .35rem 0 0; }
 .cv .bullets li { margin: .2rem 0; }
 
-/* inline degrees (no gap) */
+/* ---- Inline Degrees ---- */
 .inline-degrees { margin: 0; }
 .inline-degrees em { font-style: italic; }
 
-/* links on right side use accent underline */
-.cv .links a { text-decoration: none; color: inherit; border-bottom: 2px solid var(--color-accent); }
-.cv .links a:hover { border-bottom-width: .4em; }
+/* ---- Resume Links ---- */
+.cv .links a { 
+  text-decoration: none; 
+  color: inherit; 
+  border-bottom: 2px solid var(--color-accent); 
+}
+.cv .links a:hover { 
+  border-bottom-width: .4em; 
+}
 
-/* project blocks */
+/* ---- Project Blocks ---- */
 .cv .project { margin-bottom: 1.25rem; }
+
 .proj-head {
   display: flex;
   justify-content: space-between;
@@ -179,9 +280,8 @@ h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
   margin-bottom: 0.3rem;
 }
 
-/* align project titles + links properly */
-.proj-head .title {
-  flex: 1 1 20rem;
+.proj-head .title { 
+  flex: 1 1 20rem; 
 }
 
 .proj-head .links {
@@ -191,26 +291,26 @@ h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
   flex-basis: auto;
 }
 
+/* ---- Responsive (narrow widths) ---- */
 @media (max-width: 700px) {
-  .proj-head .links {
-    flex-basis: 100%;
-  }
+  .proj-head .links { flex-basis: 100%; }
 }
 
+/* ---- Titles + Links ---- */
 .proj-head h3 { margin: 0; font-weight: 600; }
 .proj-head .links { margin: 0; font-size: 0.95em; white-space: nowrap; }
 .proj-head .links a { text-decoration: none; border-bottom: 2px solid var(--color-accent); }
 .proj-head .links a:hover { border-bottom-width: 0.4em; }
 
-/* tighter lists */
+/* ---- List Spacing ---- */
 .cv .project ul { margin-top: 0.3rem; margin-bottom: 0.8rem; }
 .cv .project ul li { margin: 0.25rem 0; }
 
-/* spacing school and projects */
+/* ---- Section Spacing ---- */
 .cv [aria-labelledby="edu"] article + article h3 { margin-top: 0.9rem; }
 .cv .project + .project { margin-top: 1.1rem; }
 
-/* resume download link */
+/* ---- Resume Download Link ---- */
 .cv .download a {
   display: inline-block;
   text-decoration: none;
@@ -219,10 +319,10 @@ h2, h3, h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
 }
 .cv .download a:hover { border-bottom-width: .4em; }
 
+/* =========================================
+   THEME SWITCHER (UI)
+   ========================================= */
 
-/* =========================
-   THEME SWITCH (UI)
-*/
 label.color-scheme {
   position: absolute;
   top: 1rem;
@@ -232,65 +332,54 @@ label.color-scheme {
 }
 label.color-scheme select { font: inherit; }
 
-/* =========================
+/* =========================================
    DARK MODE
-   (light theme untouched)
-*/
+   ========================================= */
+
 @media (prefers-color-scheme: dark) {
   html { color-scheme: dark; }
   body { background: canvas; color: canvastext; }
 
-  /* resume right column text readable on dark */
+  /* ensure secondary text remains readable */
   .right,
   .date,
   .place { color: canvastext !important; }
 }
 
+/* =========================================
+   GITHUB STATS
+   ========================================= */
 
-/* Displaying github stats*/
 #profile-stats dl {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* four equal columns */
-  gap: 0.5rem; /* space between columns */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
   text-align: center;
 }
 
 #profile-stats dt {
-  grid-row: 1; /* force all <dt> elements into first row */
+  grid-row: 1;
   font-weight: bold;
 }
 
 #profile-stats dd {
-  grid-row: 2; /* force all <dd> elements into second row */
-  margin: 0; /* remove default margins */
+  grid-row: 2;
+  margin: 0;
 }
 
-.profile-pic {
-  width: 300px;       /* adjust as needed */
-  height: auto;       /* keeps the proportions */
-  border-radius: 12px; /* optional, soft corners */
-  display: block;
-  margin: 20px auto;  /* centers it */
-}
-
-/* Optional: Add hover or subtle animation */
+/* ---- Hover Interaction ---- */
 #profile-stats dd:hover {
   transform: scale(1.05);
   transition: transform 0.2s ease;
-  color: #de6118; /* optional accent color */
+  color: #de6118;
 }
 
-/* Display picture side by side with into*/ 
-.intro-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem; /* space between text and image */
-  flex-wrap: wrap; /* makes it responsive */
-  margin-bottom: 2rem;
+/* ---- Profile Image ---- */
+.profile-pic {
+  width: 300px;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  margin: 20px auto;
 }
 
-.intro-text {
-  flex: 1 1 60%; /* allow it to shrink or grow */
-  max-width: 600px;
-}
