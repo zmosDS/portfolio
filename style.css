@@ -163,9 +163,15 @@ form button {
 /* ---- Year Styling ---- */
 .project-year {
   font-size: 0.9rem;
-  color: var(--orange);
   opacity: 0.8;
   font-style: italic;
+}
+
+#pieChart {
+  max-width: 20em;       /* smaller and responsive */
+  margin: 2em;      /* vertical spacing */
+  display: block;
+  overflow: visible;
 }
 
 /* =========================================
