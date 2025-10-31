@@ -8,20 +8,26 @@
     <link rel="stylesheet" href="../style.css"> 
 </head>
 <body>
-    <h1>Projects</h1>
+  <h1>Projects</h1>
 
-    <h3>Projects section is currently under construction. My projects can be accessed through 
+  <h3>Projects section is currently under construction. My projects can be accessed through 
       the Resume or Github tabs above, thank you for visiting!</h3>
 
-    <br><br>  
-
+  <div class="chart-container">
     <svg id="pieChart" viewBox="-50 -50 100 100"></svg>
+    <ul class="legend"></ul>
+  </div>
 
-    <div class="projects">
-    </div>
+  <input
+  class="searchBar"
+  type="search"
+  aria-label="Search projects"
+  placeholder="🔍 Search projects…"
+/>
 
-    <script src="../global.js" type="module"></script>
-    <script src="projects.js" type="module"></script>
+  <div class="projects"></div>
 
+  <script src="../global.js" type="module"></script>
+  <script src="projects.js" type="module"></script>
 </body>
 </html>

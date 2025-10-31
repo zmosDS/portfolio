@@ -167,11 +167,68 @@ form button {
   font-style: italic;
 }
 
+.no-results {
+  grid-column: 1 / -1;   /* spans full row */
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 2rem 0;
+  opacity: 0.7;
+}
+
+
+/* =========================================
+   PIE CHART + LEGEND
+   ========================================= */
+
+/* ---- Chart + Legend Wrapper ---- */
+.chart-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;               /* spacing between chart + legend */
+  margin-block: 3rem;      /* consistent vertical spacing */
+  flex-wrap: wrap;         /* wraps on small screens */
+}
+
+/* ---- Pie Chart SVG ---- */
 #pieChart {
-  max-width: 20em;       /* smaller and responsive */
-  margin: 2em;      /* vertical spacing */
-  display: block;
+  width: 250px;
+  height: 250px;
+  max-width: 20em;         /* responsive cap */
+  aspect-ratio: 1 / 1;     /* keeps it a square */
   overflow: visible;
+  margin: 0;               /* container handles spacing */
+  display: block;
+}
+
+/* ---- Legend Grid ---- */
+.legend {
+  flex: 1;                 /* legend expands to fill row space */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  gap: 1.5rem;             /* outer gap (bigger than li gap) */
+  padding: 1rem;
+  margin-block: 2rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* ---- Legend Item ---- */
+.legend li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;             /* smaller inner spacing (Proximity rule) */
+  font-size: 0.9rem;
+}
+
+/* ---- Legend Swatch ---- */ /*color of dots*/
+.legend li .swatch {
+  width: 1em;
+  height: 1em;
+  background: var(--color);
+  border-radius: 50%;      /* circle (change to 4px if you want rounded square) */
+  display: inline-flex;
 }
 
 /* =========================================
@@ -389,3 +446,9 @@ label.color-scheme select { font: inherit; }
   margin: 20px auto;
 }
 
+#pieChart path { cursor: pointer; transition: 300ms; }
+#pieChart:has(path:hover) path:not(:hover) { opacity: .5; }
+#pieChart path.selected {fill: oklch(60% 0.45 0) !important;}
+
+/* highlight legend item */
+.legend li.selected {font-weight: 600; opacity: 1;}
