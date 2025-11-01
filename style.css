@@ -202,15 +202,16 @@ form button {
 
 /* ---- Legend Grid ---- */
 .legend {
-  flex: 1;                 /* legend expands to fill row space */
+  flex: 1;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
-  gap: 1.5rem;             /* outer gap (bigger than li gap) */
+  gap: 1.5rem;
   padding: 1rem;
   margin-block: 2rem;
-  border: 2px solid #ccc;
+  border: 2px solid #ccc;   /* default border for light mode */
   border-radius: 8px;
-  background: #fff;
+  background: #fff;         /* light mode default */
+  color: #000;
 }
 
 /* ---- Legend Item ---- */
@@ -218,17 +219,26 @@ form button {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 0.5rem;             /* smaller inner spacing (Proximity rule) */
+  gap: 0.5rem;
   font-size: 0.9rem;
 }
 
-/* ---- Legend Swatch ---- */ /*color of dots*/
+/* ---- Legend Swatch ---- */
 .legend li .swatch {
   width: 1em;
   height: 1em;
   background: var(--color);
-  border-radius: 50%;      /* circle (change to 4px if you want rounded square) */
+  border-radius: 50%;
   display: inline-flex;
+}
+
+/* ---- Dark Mode ---- */
+@media (prefers-color-scheme: dark) {
+  .legend {
+    background: #1e1e1e;   /* match site dark tone */
+    color: #fff;
+    border-color: #444;    /* subtle dark border */
+  }
 }
 
 /* =========================================
