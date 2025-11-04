@@ -37,7 +37,7 @@ const toYearCounts = (list) => {
 };
 
 
-/* --- Combined filtering logic (search + year) --- */
+/* --- Combine filtering (search + year) --- */
 function getFilteredList() {
   let list = projects;
 
@@ -56,7 +56,7 @@ function getFilteredList() {
   return list;
 }
 
-/* --- Master render function (cards + chart) --- */
+/* --- Render All (cards + chart) --- */
 function renderAll() {
   const list = getFilteredList();
 
