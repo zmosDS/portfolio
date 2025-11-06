@@ -458,7 +458,7 @@ label.color-scheme select { font: inherit; }
 
 #pieChart path { cursor: pointer; transition: 300ms; }
 #pieChart:has(path:hover) path:not(:hover) { opacity: .5; }
-#pieChart path.selected {fill: oklch(60% 0.45 0) !important;}
+#pieChart path.selected {fill: oklch(32% 0 0) !important;}
 
 /* highlight legend item */
 .legend li.selected {font-weight: 600; opacity: 1;}
