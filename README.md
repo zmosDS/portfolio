@@ -40,10 +40,10 @@ Fall2025_DSCR209R_Project3/
 
 
 ## Contributors
-Zack M. • Jillian O. • Alex H.
+Zack M. • Jillian O. • Alex H.  
 Team Smooth JAZ 
 
 ## Course
-DSC 209 - Data Visualization
+DSC 209 - Data Visualization  
 Fall 2025 • UC San Diego
 
