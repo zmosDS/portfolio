@@ -21,22 +21,29 @@ The goal of this project is to visualize civilian complaints against the NYPD fr
 - Legend that updates to match the scale
 
 ## Files
-- `data/allegations_20200727.csv` — raw CCRB export (reference only)
-- `data/Project_3_Data_Transformation.ipynb` — Jupyter notebook used to process the raw CCRB dataset
-- `data/complaints_by_precinct.json` — processed data used by the visualization
-- `data/nyc_precincts.geojson` — precinct boundaries
-- `index.html` — page structure
-- `style.css` — styles
-- `visualization.js` — D3 map, slider, legend, brushing
+```
+Fall2025_DSCR209R_Project3/
+├── index.html                               # Main webpage for the interactive map
+├── visualization.js                         # D3 logic for map, slider, brushing, legend
+├── style.css                                # Page styling
+├── data/
+│   ├── allegations_20200727.csv             # Raw CCRB dataset (reference only)
+│   ├── Project_3_Data_Transformation.ipynb  # Data processing & transformation notebook
+│   ├── complaints_by_precinct.json          # Processed dataset used by the visualization
+│   └── nyc_precincts.geojson                # NYC precinct boundary shapes (GeoJSON)
+├── README.md                                # Project overview and usage details
+
+```
 
 ## Data Source
 [New York City’s Civilian Complaint Review Board](https://projects.propublica.org/datastore/#civilian-complaints-against-new-york-city-police-officers)
 
 
 ## Contributors
-Zack M., Jillian O., Alex H.
+Zack M. • Jillian O. • Alex H.
+Team Smooth JAZ 
 
 ## Course
-DSC 209 - Data Visualization, UC San Diego  
-Fall 2025 • Team Smooth JAZ
+DSC 209 - Data Visualization
+Fall 2025 • UC San Diego
 
