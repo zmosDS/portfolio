@@ -21,13 +21,12 @@ Show how complaints changed over time and how a small set of precincts, especial
 - Legend that updates to match the scale
 
 ## Files
-data/
-  allegations_20200727.csv            # raw CCRB export (reference)
-  complaints_by_precinct.json         # processed data used by the visualization
-  nyc_precincts.geojson               # precinct boundaries
-index.html                            # html page
-style.css                             # styles
-visualization.js                      # D3 map, slider, legend, brushing
+- `data/allegations_20200727.csv` — raw CCRB export (reference only)
+- `data/complaints_by_precinct.json` — processed data used by the visualization
+- `data/nyc_precincts.geojson` — precinct boundaries
+- `index.html` — page structure
+- `style.css` — styles
+- `visualization.js` — D3 map, slider, legend, brushing
 
 ## Data Source
 [New York City’s Civilian Complaint Review Board](https://projects.propublica.org/datastore/#civilian-complaints-against-new-york-city-police-officers)
