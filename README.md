@@ -7,7 +7,7 @@ Interactive map of civilian complaints against the NYPD by precinct and year.
 The goal of this project is to visualize civilian complaints against the NYPD from 1985–2019 at the precinct level, allowing users to explore how complaint patterns changed over time and which areas experienced the highest concentration of reports.
 
 ## Built With
-- D3.js v7
+- D3.js 
 - GeoJSON
 - HTML, CSS, JavaScript
 - GitHub Pages
