@@ -22,7 +22,7 @@ Show how complaints changed over time and how a small set of precincts, especial
 
 ## Files
 - `data/allegations_20200727.csv` — raw CCRB export (reference only)
-- `data/Project_3_Data_Transformation.ipynb` — Jupyter notebook used to process the raw CCRB dataset into `complaints_by_precinct.json`
+- `data/Project_3_Data_Transformation.ipynb` — Jupyter notebook used to process the raw CCRB dataset
 - `data/complaints_by_precinct.json` — processed data used by the visualization
 - `data/nyc_precincts.geojson` — precinct boundaries
 - `index.html` — page structure
