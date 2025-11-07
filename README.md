@@ -4,7 +4,7 @@ Interactive map of civilian complaints against the NYPD by precinct and year.
 **Live demo:** [View the Interactive Map](https://oneeljilc.github.io/Fall2025_DSCR209R_Project3/)
 
 ## Goal
-Show how complaints changed over time and how a small set of precincts, especially Brooklyn’s 75th, account for a large share of the total.
+The goal of this project is to visualize civilian complaints against the NYPD from 1985–2019 at the precinct level, allowing users to explore how complaint patterns changed over time and which areas experienced the highest concentration of reports.
 
 ## Built With
 - D3.js v7
