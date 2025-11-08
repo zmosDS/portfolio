@@ -1,49 +1,37 @@
-# Mapping Misconduct: NYPD Complaint Trends (1985–2019)
+# Personal Portfolio Website
 
-Interactive map of civilian complaints against the NYPD by precinct and year.  
-**Live demo:** [View the Interactive Map](https://oneeljilc.github.io/Fall2025_DSCR209R_Project3/)
+A web portfolio showcasing selected projects, coursework, and experience in web development and data visualization.  
+**Live site:** [View Portfolio](https://zmosds.github.io/portfolio/)
 
-## Goal
-The goal of this project is to visualize civilian complaints against the NYPD from 1985–2019 at the precinct level, allowing users to explore how complaint patterns changed over time and which areas experienced the highest concentration of reports.
+## Highlights
+- Fully client-side website built without frameworks
+- Interactive visualizations using D3.js
+- Custom styling + theming (no templates or site builders)
+- Includes meta-analysis page that visualizes its own codebase
 
-## Built With
-- D3.js 
-- GeoJSON
+## Tech Stack
 - HTML, CSS, JavaScript
+- D3.js 
+- Node.js + npm 
 - GitHub Pages
 
-## Features
-- Interactive NYC precinct map colored by yearly complaint counts
-- Year slider to explore 1985–2019
-- Brushing to select precincts with totals and a per-precinct breakdown
-- Precincts with zero complaints shown in gray
-- Blended per-year and global max for better contrast in early years
-- Legend that updates to match the scale
-
-## Files
+## Structure
 ```
-Fall2025_DSCR209R_Project3/
-├── index.html                               # Main webpage for the interactive map
-├── visualization.js                         # D3 logic for map, slider, brushing, legend
-├── style.css                                # Page styling
-├── data/
-│   ├── allegations_20200727.csv             # Raw CCRB dataset (reference only)
-│   ├── Project_3_Data_Transformation.ipynb  # Data processing & transformation notebook
-│   ├── complaints_by_precinct.json          # Processed dataset used by the visualization
-│   └── nyc_precincts.geojson                # NYC precinct boundary shapes (GeoJSON)
-├── README.md                                # Project overview and usage details
-
+PORTFOLIO/
+├── contact/
+├── images/
+├── lib/
+├── meta/
+├── projects/
+├── resume/
+├── global.js
+├── index.html
+├── index.js
+├── style.css
+└── .gitignore
 ```
 
-## Data Source
-[New York City’s Civilian Complaint Review Board](https://projects.propublica.org/datastore/#civilian-complaints-against-new-york-city-police-officers)
-
-
-## Contributors
-Zack M. • Jillian O. • Alex H.  
-Team Smooth JAZ 
-
-## Course
-DSC 209 - Data Visualization  
-Fall 2025 • UC San Diego
+## About
+Designed to serve as an evolving professional portfolio during and after graduate study.  
+Built and maintained by Zack Mosley — contact information is available on the site.
 
