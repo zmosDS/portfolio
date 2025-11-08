@@ -523,3 +523,69 @@ label.color-scheme select { font: inherit; }
     --ring: rgba(255,255,255,0.03);
   }
 }
+
+/* Make gridlines faint and clean */
+.grid line {
+  stroke: #888;
+  opacity: 0.50;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke: none;
+}
+
+/* Dots on hover */
+.dots circle:hover {
+  stroke: white;
+  stroke-width: 1.5;
+  transform: scale(1.5);
+}
+
+/* Shared info list layout */
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0;
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info dt {
+  opacity: 0.6;
+  font-size: 0.75rem;
+}
+
+dl.info dd {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Tooltip styling */
+.tooltip {
+  position: fixed;
+  background: rgba(30, 30, 30, 0.85);
+  color: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+  pointer-events: none; /* so it doesn’t block mouse */
+}
+
+/* Hidden state */
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Dot hover animation */
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+
