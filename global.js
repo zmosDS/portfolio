@@ -17,7 +17,7 @@ const pages = [
   { url: "resume/",     title: "Resume" },
   { url: "contact/",    title: "Contact" },
   { url: "meta/",    title: "Meta" },
-  { url: "https://github.com/", title: "Github" },
+  { url: "https://github.com/zmosDS", title: "Github" },
 ];
 
 // Detect if running locally or on GitHub Pages
