@@ -1,0 +1,30 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "A web portfolio showcasing selected projects, coursework, and experience in web development and data visualization.   **Live site:** [View Portfolio](https://zmosds.github.io/portfolio/)",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zmosDS/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/zmosDS/portfolio/issues"
+  },
+  "homepage": "https://github.com/zmosDS/portfolio#readme",
+  "devDependencies": {
+    "elocuent": "^0.0.4"
+  },
+  "dependencies": {
+    "d3": "^7.9.0"
+  }
+}
