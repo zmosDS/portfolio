@@ -1,6 +1,6 @@
 # Personal Portfolio Website
 
-A web portfolio showcasing selected projects, coursework, and experience in web development and data visualization.  
+A growing data science portfolio showcasing analytical, visualization, and research projects developed during graduate study and beyond.
 **Live site:** [View Portfolio](https://zmosds.github.io/portfolio/)
 
 ## Highlights
