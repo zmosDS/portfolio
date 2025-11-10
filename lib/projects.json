@@ -3,7 +3,7 @@
 		"title": "Mapping Misconduct: NYPD Complaint Trends (1985–2019)",
 		"year": "2025",
 		"image": "../images/NYPD_misconduct_heatmap.png",
-		"description": "Interactive map of civilian complaints against the NYPD from 1985–2019 at the precinct level, allowing users to explore how complaint patterns changed over time and which areas experienced the highest concentration of reports.",
+		"description": "Interactive visualization of NYC civilian complaints (1985–2019) using D3.js, exploring spatial and temporal patterns of police misconduct.",
 	    "live": "https://oneeljilc.github.io/NYPD_misconduct_heatmap/",
     	"code": "https://github.com/oneeljilc/NYPD_misconduct_heatmap"
 	},
@@ -11,7 +11,7 @@
 		"title": "Complaints Surge Among Young Officers",
 		"year": "2025",
 		"image": "../images/persuasive_or_deceptive.png",
-		"description": "Persuasive or Deceptive? Two opposing visualizations built to show how visual design, framing, and data transformation can be used to either support or undermine a proposition — even when both visualizations are based on the same underlying data.",
+		"description": "Two contrasting visualizations built from the same NYPD complaint data to demonstrate how design and framing can shape interpretation and narrative.",
 		"live": "https://zmosds.github.io/persuasive_or_deceptive/",
     	"code": "https://github.com/zmosDS/persuasive_or_deceptive"
 	},
@@ -27,56 +27,57 @@
 		"title": "NYC Yellow Taxi Fare Prediction",
 		"year": "2025",
 		"image": "../images/nyc_taxi_fare.png",
-		"description": "Predicting NYC Yellow Taxi fares using large-scale trip data and a tuned LightGBM model.",
+		"description": "Large-scale predictive modeling project using Apache Spark and LightGBM to estimate taxi fares from 150M+ NYC ride records.",
 		"live": "https://github.com/anon/nyc-taxi-eda/blob/Milestone3/model_1_final.ipynb",
     	"code": "https://github.com/zmosDS/NYC_taxi_fare_prediction"
+	},
+	{
+		"title": "Quarterback Salary Analysis",
+		"year": "2024",
+		"image": "../images/qb_salary_clusters.png",
+		"description": "Exploratory analysis of NFL quarterback salaries and team performance, using clustering and visual analytics to examine how pay levels relate to win percentage.",
+    	"code": "https://github.com/zmosDS/qb_salary_analysis"
 	},
 	{
 		"title": "Car Value Predictor",
 		"year": "2024",
 		"image": "../images/car_value_predictor.png",
-		"description": "A machine learning based tool that predicts used car prices from key features such as make, model, year, mileage, and trim. Built as a full data science pipeline: from web scraping and model development to an interactive dashboard for real-time vehicle value estimation.",
+		"description": "Machine learning model and dashboard that estimates car prices from user inputs, built end-to-end from web-scraped vehicle listings.",
     	"code": "https://github.com/zmosDS/car_value_predictor"
 	},
 	{
 		"title": "Quos sint quaerat omnis?",
-		"year": "2022",
+		"year": "2024",
 		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
 		"description": "Est neque, velit nam rerum error odio voluptates voluptatem magnam laboriosam ad? Doloribus, id et itaque unde porro totam ullam quaerat blanditiis odit animi eveniet aut, voluptate velit iure odio."
 	},
 	{
-		"title": "Iste ipsam magni fuga!",
-		"year": "2021",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Velit omnis suscipit nemo quia? Iste maiores numquam labore quia nemo eveniet odit, modi magnam? Architecto officia sint est. Architecto iste minima consequuntur explicabo illo error sed at dolore nostrum!"
-	},
-	{
 		"title": "Ipsum, aperiam magni? Nobis.",
-		"year": "2021",
+		"year": "2024",
 		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
 		"description": "Delectus magni, vel, quod mollitia hic rem temporibus, sint doloribus tenetur qui dolores tempore quisquam fuga nobis recusandae molestiae ipsum nostrum maxime eaque dicta aperiam eum quas beatae. At, neque."
 	},
 	{
 		"title": "Dicta nihil odit illo?",
-		"year": "2020",
+		"year": "2023",
 		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
 		"description": "Vitae quos laudantium officiis rerum, accusamus delectus aspernatur quas nulla, magni sed, excepturi saepe incidunt laboriosam alias at aliquam atque quisquam autem nesciunt. Minus, reprehenderit odit nam illo natus aspernatur?"
 	},
 	{
 		"title": "Vel earum nulla facilis.",
-		"year": "2020",
+		"year": "2023",
 		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
 		"description": "Aut voluptatem sint atque corrupti accusamus necessitatibus possimus et, itaque nulla id deleniti nemo repellendus asperiores molestias laudantium, mollitia ad dicta. Laboriosam, itaque. Quos corporis, perferendis natus officiis beatae qui."
 	},
 	{
 		"title": "Nobis iste neque quaerat.",
-		"year": "2019",
+		"year": "2023",
 		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
 		"description": "Quos, recusandae, sit rerum velit nostrum nihil quisquam tempora repellat sed quibusdam facilis. Assumenda quaerat ab, nesciunt odio facere sit, ipsa necessitatibus tempora, maiores commodi sed quae provident deserunt at?"
 	},
 	{
 		"title": "Iusto, incidunt. Totam, illum.",
-		"year": "2019",
+		"year": "2023",
 		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
 		"description": "Tempore, eveniet minus velit, earum aperiam necessitatibus repellendus provident accusamus illum officiis doloribus, eum saepe est aut numquam distinctio pariatur natus totam repellat. Numquam nulla libero sapiente magnam nostrum ex."
 	}
