@@ -1,33 +1,42 @@
 [
 	{
-		"title": "Lorem ipsum dolor sit.",
+		"title": "Mapping Misconduct: NYPD Complaint Trends (1985–2019)",
 		"year": "2025",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+		"image": "../images/NYPD_misconduct_heatmap.png",
+		"description": "Interactive map of civilian complaints against the NYPD from 1985–2019 at the precinct level, allowing users to explore how complaint patterns changed over time and which areas experienced the highest concentration of reports.",
+	    "live": "https://oneeljilc.github.io/NYPD_misconduct_heatmap/",
+    	"code": "https://github.com/oneeljilc/NYPD_misconduct_heatmap"
 	},
 	{
-		"title": "Architecto minima sed omnis?",
+		"title": "Complaints Surge Among Young Officers",
+		"year": "2025",
+		"image": "../images/persuasive_or_deceptive.png",
+		"description": "Persuasive or Deceptive? Two opposing visualizations built to show how visual design, framing, and data transformation can be used to either support or undermine a proposition — even when both visualizations are based on the same underlying data.",
+		"live": "https://zmosds.github.io/persuasive_or_deceptive/",
+    	"code": "https://github.com/zmosDS/persuasive_or_deceptive"
+	},
+	{
+		"title": "Portfolio",
+		"year": "2025",
+		"image": "../images/portfolio.png",
+		"description": "A growing data science portfolio showcasing analytical, visualization, and research projects developed during graduate study and beyond.",
+		"live": "https://zmosds.github.io/portfolio/",
+    	"code": "https://github.com/zmosDS/portfolio"
+	},
+	{
+		"title": "NYC Yellow Taxi Fare Prediction",
+		"year": "2025",
+		"image": "../images/nyc_taxi_fare.png",
+		"description": "Predicting NYC Yellow Taxi fares using large-scale trip data and a tuned LightGBM model.",
+		"live": "https://github.com/anon/nyc-taxi-eda/blob/Milestone3/model_1_final.ipynb",
+    	"code": "https://github.com/zmosDS/NYC_taxi_fare_prediction"
+	},
+	{
+		"title": "Car Value Predictor",
 		"year": "2024",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Est, reiciendis aspernatur debitis maxime et itaque animi sit quod quo, tempore incidunt tempora dignissimos exercitationem enim numquam quam quaerat optio laborum ut unde hic delectus laboriosam? Quasi, cupiditate corporis."
-	},
-	{
-		"title": "Asperiores rem repellendus doloremque.",
-		"year": "2024",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Eligendi tenetur quae quos recusandae est. Cumque, voluptatem. Quo nihil dignissimos molestiae explicabo praesentium aspernatur debitis, illo rerum possimus quam ducimus earum nulla officiis maiores itaque repellat corporis soluta labore?"
-	},
-	{
-		"title": "Laudantium reprehenderit placeat perspiciatis.",
-		"year": "2023",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Quo minus perferendis nulla corrupti repellat dolorem dolore assumenda sit minima ducimus quidem ullam, id ipsa dicta tempora laborum officiis unde possimus cumque nobis alias inventore! Ullam repudiandae iusto nam."
-	},
-	{
-		"title": "Consequuntur autem eos facere.",
-		"year": "2022",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Laborum alias ea unde harum aspernatur? Molestiae, veritatis, possimus, numquam ex excepturi quod ducimus sit odit optio quibusdam sequi aliquid itaque tempore perspiciatis placeat expedita vero voluptates. Sit, aspernatur sint!"
+		"image": "../images/car_value_predictor.png",
+		"description": "A machine learning based tool that predicts used car prices from key features such as make, model, year, mileage, and trim. Built as a full data science pipeline: from web scraping and model development to an interactive dashboard for real-time vehicle value estimation.",
+    	"code": "https://github.com/zmosDS/car_value_predictor"
 	},
 	{
 		"title": "Quos sint quaerat omnis?",

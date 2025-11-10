@@ -364,6 +364,22 @@ h2, h3, h4, h5, h6 {
   flex-basis: auto;
 }
 
+.project-links {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.project-links a {
+  color: #ff914d; /* pick your accent */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+
 /* ---- Responsive (narrow widths) ---- */
 @media (max-width: 700px) {
   .proj-head .links { flex-basis: 100%; }
