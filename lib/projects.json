@@ -2,7 +2,7 @@
 	{
 		"title": "Mapping Misconduct: NYPD Complaint Trends (1985–2019)",
 		"year": "2025",
-		"image": "../images/NYPD_misconduct_heatmap.png",
+		"image": "/images/NYPD_misconduct_heatmap.png",
 		"description": "Interactive visualization of NYC civilian complaints (1985–2019) using D3.js, exploring spatial and temporal patterns of police misconduct.",
 	    "live": "https://oneeljilc.github.io/NYPD_misconduct_heatmap/",
     	"code": "https://github.com/oneeljilc/NYPD_misconduct_heatmap"
@@ -10,7 +10,7 @@
 	{
 		"title": "Complaints Surge Among Young Officers",
 		"year": "2025",
-		"image": "../images/persuasive_or_deceptive.png",
+		"image": "/images/persuasive_or_deceptive.png",
 		"description": "Two contrasting visualizations built from the same NYPD complaint data to demonstrate how design and framing can shape interpretation and narrative.",
 		"live": "https://zmosds.github.io/persuasive_or_deceptive/",
     	"code": "https://github.com/zmosDS/persuasive_or_deceptive"
@@ -18,7 +18,7 @@
 	{
 		"title": "Portfolio",
 		"year": "2025",
-		"image": "../images/portfolio.png",
+		"image": "/images/portfolio.png",
 		"description": "A growing data science portfolio showcasing analytical, visualization, and research projects developed during graduate study and beyond.",
 		"live": "https://zmosds.github.io/portfolio/",
     	"code": "https://github.com/zmosDS/portfolio"
@@ -26,7 +26,7 @@
 	{
 		"title": "NYC Yellow Taxi Fare Prediction",
 		"year": "2025",
-		"image": "../images/nyc_taxi_fare.png",
+		"image": "/images/nyc_taxi_fare.png",
 		"description": "Large-scale predictive modeling project using Apache Spark and LightGBM to estimate taxi fares from 150M+ NYC ride records.",
 		"live": "https://github.com/anon/nyc-taxi-eda/blob/Milestone3/model_1_final.ipynb",
     	"code": "https://github.com/zmosDS/NYC_taxi_fare_prediction"
@@ -34,14 +34,14 @@
 	{
 		"title": "Quarterback Salary Analysis",
 		"year": "2024",
-		"image": "../images/qb_salary_clusters.png",
+		"image": "/images/qb_salary_clusters.png",
 		"description": "Exploratory analysis of NFL quarterback salaries and team performance, using clustering and visual analytics to examine how pay levels relate to win percentage.",
     	"code": "https://github.com/zmosDS/qb_salary_analysis"
 	},
 	{
 		"title": "Car Value Predictor",
 		"year": "2024",
-		"image": "../images/car_value_predictor.png",
+		"image": "/images/car_value_predictor.png",
 		"description": "Machine learning model and dashboard that estimates car prices from user inputs, built end-to-end from web-scraped vehicle listings.",
     	"code": "https://github.com/zmosDS/car_value_predictor"
 	}
