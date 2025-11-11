@@ -9,12 +9,13 @@
 
 
 /* --- Imports --- */
-import { fetchJSON, renderProjects } from '../global.js';
+import { fetchJSON, renderProjects, BASE_PATH } from '../global.js';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
 
 /* --- Load project data --- */
-const projects = await fetchJSON('../lib/projects.json');
+const projects = await fetchJSON(`${BASE_PATH}lib/projects.json`);
+
 
 /* --- Shared filter state --- */
 let selectedYear = null;   // null = no year filter
@@ -55,6 +56,7 @@ function getFilteredList() {
 
   return list;
 }
+
 
 /* --- Render All (cards + chart) --- */
 function renderAll() {
@@ -100,7 +102,7 @@ function drawChart(data) {
   const arcs = pie(data);
 
   /* --- PIE SLICES --- */
-  const slices = svg.selectAll('path')
+  svg.selectAll('path')
     .data(arcs)
     .enter()
     .append('path')
@@ -114,7 +116,7 @@ function drawChart(data) {
     });
 
   /* --- LEGEND --- */
-  const legendItems = legend.selectAll('li')
+  legend.selectAll('li')
     .data(data)
     .enter()
     .append('li')

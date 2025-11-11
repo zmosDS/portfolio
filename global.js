@@ -1,106 +1,109 @@
-// global.js
-// This script builds a navigation bar automatically on every page.
-// It makes links work both locally (Live Server) and on GitHub Pages.
-// It also highlights the current page link and opens external links in new tabs.
+/* =====================================================
+   GLOBAL.JS
+   Builds navigation and handles global helpers.
+   Works both locally (Live Server) and on GitHub Pages.
+   ===================================================== */
 
 console.log("IT’S ALIVE!"); // quick test that JS is running
 
-// $$ is helper funtion to grab multiple elements
+
+/* --- Helper: $$ (query selector all) --- */
 export function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 
-// List of pages for the nav 
+
+/* --- List of pages for the nav --- */
 const pages = [
   { url: "",            title: "Home" },
   { url: "projects/",   title: "Projects" },
   { url: "resume/",     title: "Resume" },
   { url: "contact/",    title: "Contact" },
-  { url: "meta/",    title: "Meta" },
+  { url: "meta/",       title: "Meta" },
   { url: "https://github.com/zmosDS", title: "Github" },
 ];
 
-// Detect if running locally or on GitHub Pages
-// Live Server uses localhost or 127.0.0.1
+
+/* --- Detect if running locally or on GitHub Pages --- */
 const isLocal = ["localhost", "127.0.0.1", "::1"].includes(location.hostname);
 
-// Function to find the correct base folder for links
-// On GitHub Pages, the site may be hosted inside /repo-name/
-// Locally, it is just "/"
+
+/* --- Function to find the correct base folder for links --- */
 function detectBasePath() {
   if (isLocal) return "/";
 
   const hostIsGH = location.hostname.endsWith("github.io");
   if (!hostIsGH) return "/";
 
-  // Split the path 
   const parts = location.pathname.split("/").filter(Boolean);
 
-  // If there is a first part, assume it is the repo name
+  // If repo is served from subfolder (like /portfolio/), return that as base
   return parts.length > 0 ? `/${parts[0]}/` : "/";
 }
 
-// The final base path that works for both Live Server and GitHub Pages
-const BASE_PATH = detectBasePath();
 
-// Helper to clean up paths
-// Removes "index.html" and extra slashes so paths can be compared
+/* --- The final base path that works for both Live Server and GitHub Pages --- */
+const BASE_PATH = detectBasePath();
+export { BASE_PATH }; // used in projects.js for images + JSON
+
+
+/* --- Helper to clean up paths for comparison --- */
 const normalizePath = (p) =>
   p.replace(/index\.html?$/i, "").replace(/\/+$/, "/");
 
-// Save current page
+
+/* --- Save current page info --- */
 const currentHost = location.host;
 const currentPath = normalizePath(location.pathname);
 
-// Navigation 
-// Create a <nav> element and add it to the top of the body
+
+/* =====================================================
+   NAVIGATION
+   Auto-builds nav bar and highlights current page.
+   ===================================================== */
+
 const nav = document.createElement("nav");
 document.body.prepend(nav);
 
-// Create each link
 for (const p of pages) {
   let url = p.url;
 
-  // Check if link is external (starts with http)
+  // External link detection
   const isExternal =
     /^https?:\/\//i.test(url) || url.startsWith("mailto:") || url.startsWith("tel:");
 
-  // If internal, prefix with BASE_PATH so links work everywhere
+  // Add base path for internal links (important for GitHub Pages)
   if (!isExternal && !url.startsWith("#")) {
     url = BASE_PATH + url;
   }
 
-  // Create the <a> element
   const a = document.createElement("a");
   a.href = url;
   a.textContent = p.title;
 
-  // External links open in a new tab with security settings
+  // Open external links in new tab
   if (a.host !== currentHost) {
     a.target = "_blank";
     a.rel = "noopener noreferrer";
   }
 
-  // Check if this link is the current page
+  // Highlight current page
   const linkPath = normalizePath(a.pathname);
   const isCurrent = a.host === currentHost && linkPath === currentPath;
-
-  // Add "current" class to highlight active page
   a.classList.toggle("current", isCurrent);
-
-  // Add accessibility info for screen readers
   if (isCurrent) a.setAttribute("aria-current", "page");
 
-  // Add the link to the nav
   nav.append(a);
 }
 
-// Dark mode switch
-// Creates a small "Theme" dropdown and wires it up to color-scheme.
-// Persists user choice in localStorage.
+
+/* =====================================================
+   DARK MODE SWITCH
+   Creates a small theme dropdown and persists choice.
+   ===================================================== */
 
 (function () {
-  // Build the UI at the top of <body>
+  // Build dropdown at top of <body>
   document.body.insertAdjacentHTML(
     'afterbegin',
     `
@@ -118,11 +121,10 @@ for (const p of pages) {
   const select = document.querySelector('.color-scheme select');
 
   function setColorScheme(value) {
-    // Apply to <html>
     document.documentElement.style.setProperty('color-scheme', value);
-    // Keep the UI in sync
     select.value = value;
-    // Persist (omit storage for "Automatic" so OS changes still take effect)
+
+    // Save preference (except for Automatic)
     if (value === 'light dark') {
       localStorage.removeItem('colorScheme');
     } else {
@@ -130,23 +132,37 @@ for (const p of pages) {
     }
   }
 
-  // On load: use saved preference if present; otherwise stay automatic
+  // Load saved or default setting
   const saved = localStorage.colorScheme;
   setColorScheme(saved || 'light dark');
 
-  // React to user changes
+  // Listen for user change
   select.addEventListener('input', (e) => {
     setColorScheme(e.target.value);
   });
 })();
 
- // Projects
+
+/* =====================================================
+   PROJECTS
+   Handles:
+   - loading project data
+   - rendering project cards
+   - working paths for both local + GitHub Pages
+   ===================================================== */
+
+
+/* --- Fetch JSON --- */
 export async function fetchJSON(url) {
   try {
-    const response = await fetch(url);
+    // Always resolve relative to BASE_PATH (fixes /portfolio/ subdir issue)
+    const fullURL = url.startsWith('http') ? url : `${BASE_PATH}${url}`;
+    const response = await fetch(fullURL);
     if (!response.ok) {
-      throw new Error(`Failed to fetch ${url}: ${response.statusText}`);
+      throw new Error(`Failed to fetch ${fullURL}: ${response.statusText}`);
     }
+
+    // Return parsed data for use in project page
     const data = await response.json();
     return data;
   } catch (error) {
@@ -154,15 +170,22 @@ export async function fetchJSON(url) {
   }
 }
 
-// Render Projects Function
+
+/* --- Render Projects --- */
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
   containerElement.innerHTML = '';
 
   projects.forEach(project => {
+    // Build correct image path (BASE_PATH ensures proper folder depth)
+    const imgPath = project.image.startsWith('http')
+      ? project.image
+      : `${BASE_PATH}${project.image.replace(/^\/+/, '')}`;
+
+    // Project card template
     const article = document.createElement('article');
     article.innerHTML = `
       <${headingLevel}>${project.title}</${headingLevel}>
-      <img src="${project.image}" alt="${project.title}">
+      <img src="${imgPath}" alt="${project.title}">
       <div class="project-info">
         <p>${project.description}</p>
 
@@ -179,10 +202,13 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     `;
     containerElement.appendChild(article);
   });
+
+  // If you add extra project metadata or filtering later, modify here.
 }
 
 
-// Asynchronous function
+/* --- GitHub API Helper --- */
 export async function fetchGitHubData(username) {
+  // Used for pulling user profile or repo info dynamically
   return fetchJSON(`https://api.github.com/users/${username}`);
-  }
+}
