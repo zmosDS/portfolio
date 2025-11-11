@@ -152,27 +152,39 @@ for (const p of pages) {
    ===================================================== */
 
 
-/* --- Fetch JSON --- */
+/* --- Fetch JSON (local + GitHub Pages safe) --- */
 export async function fetchJSON(url) {
   try {
-    // Always resolve relative to BASE_PATH (fixes /portfolio/ subdir issue)
-    const cleanURL = url.replace(/^\/+/, ''); // remove leading slashes
-    const fullURL = url.startsWith('http')
-      ? url
-      : (isLocal ? cleanURL : `${BASE_PATH}${cleanURL}`);
-    const response = await fetch(fullURL);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch ${fullURL}: ${response.statusText}`);
+    // Remove leading slashes to prevent duplicate folder names
+    const cleanURL = url.replace(/^\/+/, '');
+
+    // Build final URL based on environment
+    let fullURL;
+    if (isLocal) {
+      fullURL = cleanURL; // works with Live Server root
+    } else {
+      const hostIsGH = location.hostname.endsWith('github.io');
+      if (hostIsGH) {
+        // Detect repo name (first segment after domain)
+        const parts = location.pathname.split('/').filter(Boolean);
+        const repo = parts.length > 0 ? parts[0] : '';
+        fullURL = `/${repo}/${cleanURL}`;
+      } else {
+        fullURL = `/${cleanURL}`;
+      }
     }
 
-    // Return parsed data for use in project page
-    const data = await response.json();
-    return data;
+    // Attempt fetch
+    const response = await fetch(fullURL);
+    if (!response.ok) throw new Error(`Failed to fetch ${fullURL}: ${response.statusText}`);
+
+    // Parse and return JSON
+    return await response.json();
+
   } catch (error) {
     console.error('Error fetching or parsing JSON data:', error);
   }
 }
-
 
 /* --- Render Projects --- */
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
