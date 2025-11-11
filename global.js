@@ -158,7 +158,7 @@ export async function fetchJSON(url) {
     // Remove leading slashes to avoid double slashes
     const cleanURL = url.replace(/^\/+/, '');
 
-    // Always build with BASE_PATH (already handles /portfolio/)
+    // Always build with BASE_PATH (handles /portfolio/ on GitHub Pages)
     const fullURL = `${BASE_PATH}${cleanURL}`;
 
     // Attempt fetch
@@ -166,18 +166,6 @@ export async function fetchJSON(url) {
     if (!response.ok) {
       throw new Error(`Failed to fetch ${fullURL}: ${response.statusText}`);
     }
-
-    // Parse and return JSON
-    return await response.json();
-
-  } catch (error) {
-    console.error('Error fetching or parsing JSON data:', error);
-  }
-}
-
-    // Attempt fetch
-    const response = await fetch(fullURL);
-    if (!response.ok) throw new Error(`Failed to fetch ${fullURL}: ${response.statusText}`);
 
     // Parse and return JSON
     return await response.json();
