@@ -156,7 +156,10 @@ for (const p of pages) {
 export async function fetchJSON(url) {
   try {
     // Always resolve relative to BASE_PATH (fixes /portfolio/ subdir issue)
-    const fullURL = url.startsWith('http') ? url : `${BASE_PATH}${url}`;
+    const cleanURL = url.replace(/^\/+/, ''); // remove leading slashes
+    const fullURL = url.startsWith('http')
+      ? url
+      : (isLocal ? cleanURL : `${BASE_PATH}${cleanURL}`);
     const response = await fetch(fullURL);
     if (!response.ok) {
       throw new Error(`Failed to fetch ${fullURL}: ${response.statusText}`);
