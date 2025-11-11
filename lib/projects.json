@@ -44,42 +44,5 @@
 		"image": "../images/car_value_predictor.png",
 		"description": "Machine learning model and dashboard that estimates car prices from user inputs, built end-to-end from web-scraped vehicle listings.",
     	"code": "https://github.com/zmosDS/car_value_predictor"
-	},
-	{
-		"title": "Quos sint quaerat omnis?",
-		"year": "2024",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Est neque, velit nam rerum error odio voluptates voluptatem magnam laboriosam ad? Doloribus, id et itaque unde porro totam ullam quaerat blanditiis odit animi eveniet aut, voluptate velit iure odio."
-	},
-	{
-		"title": "Ipsum, aperiam magni? Nobis.",
-		"year": "2024",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Delectus magni, vel, quod mollitia hic rem temporibus, sint doloribus tenetur qui dolores tempore quisquam fuga nobis recusandae molestiae ipsum nostrum maxime eaque dicta aperiam eum quas beatae. At, neque."
-	},
-	{
-		"title": "Dicta nihil odit illo?",
-		"year": "2023",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Vitae quos laudantium officiis rerum, accusamus delectus aspernatur quas nulla, magni sed, excepturi saepe incidunt laboriosam alias at aliquam atque quisquam autem nesciunt. Minus, reprehenderit odit nam illo natus aspernatur?"
-	},
-	{
-		"title": "Vel earum nulla facilis.",
-		"year": "2023",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Aut voluptatem sint atque corrupti accusamus necessitatibus possimus et, itaque nulla id deleniti nemo repellendus asperiores molestias laudantium, mollitia ad dicta. Laboriosam, itaque. Quos corporis, perferendis natus officiis beatae qui."
-	},
-	{
-		"title": "Nobis iste neque quaerat.",
-		"year": "2023",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Quos, recusandae, sit rerum velit nostrum nihil quisquam tempora repellat sed quibusdam facilis. Assumenda quaerat ab, nesciunt odio facere sit, ipsa necessitatibus tempora, maiores commodi sed quae provident deserunt at?"
 	}
-//        Saving for reference of what dummy code was
-//	{
-//		"title": "Iusto, incidunt. Totam, illum.",
-//		"year": "2023",
-//		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-//		"description": "Tempore, eveniet minus velit, earum aperiam necessitatibus repellendus provident accusamus illum officiis doloribus, eum saepe est aut numquam distinctio pariatur natus totam repellat. Numquam nulla libero sapiente magnam nostrum ex."
-//	}
 ]
