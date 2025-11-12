@@ -28,7 +28,7 @@
 		"year": "2025",
 		"image": "images/nyc_taxi_fare.png",
 		"description": "Large-scale predictive modeling project using Apache Spark and LightGBM to estimate taxi fares from 150M+ NYC ride records.",
-		"live": "https://github.com/anon/nyc-taxi-eda/blob/Milestone3/model_1_final.ipynb",
+		"live": "https://github.com/zmosDS/NYC_taxi_fare_prediction/blob/main/model_1_final.ipynb",
     	"code": "https://github.com/zmosDS/NYC_taxi_fare_prediction"
 	},
 	{
