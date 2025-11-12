@@ -149,17 +149,22 @@ for (const p of pages) {
    - loading project data
    - rendering project cards
    - working paths for both local + GitHub Pages
-   ===================================================== */
+   ===================================================== *
 
 
 /* --- Fetch JSON (local + GitHub Pages safe) --- */
 export async function fetchJSON(url) {
   try {
-    // Remove leading slashes to avoid double slashes
-    const cleanURL = url.replace(/^\/+/, '');
+    // Absolute URLs (http/https) should NOT be prefixed
+    const isAbsolute = /^https?:\/\//i.test(url);
 
-    // Always build with BASE_PATH (handles /portfolio/ on GitHub Pages)
-    const fullURL = `${BASE_PATH}${cleanURL}`;
+    // Remove leading slashes for relative paths only
+    const cleanURL = isAbsolute ? url : url.replace(/^\/+/, '');
+
+    // Build final URL
+    const fullURL = isAbsolute
+      ? url                           // e.g., https://api.github.com/...
+      : `${BASE_PATH}${cleanURL}`;    // e.g., /portfolio/lib/projects.json
 
     // Attempt fetch
     const response = await fetch(fullURL);
