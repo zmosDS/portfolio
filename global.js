@@ -155,24 +155,36 @@ for (const p of pages) {
 /* --- Fetch JSON (local + GitHub Pages safe) --- */
 export async function fetchJSON(url) {
   try {
-    // Absolute URLs (http/https) should NOT be prefixed
+    // Skip prefix for absolute URLs
     const isAbsolute = /^https?:\/\//i.test(url);
 
-    // Remove leading slashes for relative paths only
-    const cleanURL = isAbsolute ? url : url.replace(/^\/+/, '');
+    let fullURL;
 
-    // Build final URL
-    const fullURL = isAbsolute
-      ? url                           // e.g., https://api.github.com/...
-      : `${BASE_PATH}${cleanURL}`;    // e.g., /portfolio/lib/projects.json
+    if (isAbsolute) {
+      fullURL = url; // external API call
+    } else {
+      // Remove leading slashes
+      const cleanURL = url.replace(/^\/+/, '');
 
-    // Attempt fetch
-    const response = await fetch(fullURL);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch ${fullURL}: ${response.statusText}`);
+      // When running locally, paths are relative from project root
+      if (isLocal) {
+        fullURL = cleanURL;
+      } else {
+        // On GitHub Pages, detect repo name (first segment after domain)
+        const parts = location.pathname.split('/').filter(Boolean);
+        const repo = parts.length > 0 ? parts[0] : '';
+
+        // If inside a subfolder like /projects/, go up one level
+        const depth = location.pathname.includes('/projects/')
+          ? '../'
+          : '';
+
+        fullURL = `${depth}${cleanURL}`;
+      }
     }
 
-    // Parse and return JSON
+    const response = await fetch(fullURL);
+    if (!response.ok) throw new Error(`Failed to fetch ${fullURL}: ${response.statusText}`);
     return await response.json();
 
   } catch (error) {
