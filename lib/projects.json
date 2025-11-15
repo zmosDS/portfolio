@@ -1,5 +1,13 @@
 [
 	{
+		"title": "Boston Bike Traffic",
+		"year": "2025",
+		"image": "images/boston_bike_traffic.png",
+		"description": "Interactive map of Boston cycling traffic built with D3 and Mapbox, highlighting hourly patterns and location-based differences across the city.",
+		"live": "https://zmosds.github.io/boston_bike_traffic/",
+		"code": "https://github.com/zmosDS/boston_bike_traffic"
+	},
+	{
 		"title": "Mapping Misconduct: NYPD Complaint Trends (1985–2019)",
 		"year": "2025",
 		"image": "images/NYPD_misconduct_heatmap.png",
