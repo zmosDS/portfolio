@@ -66,7 +66,7 @@ function processCommits(data) {
     const hourWrapped = hourOfDay < 6 ? hourOfDay + 24 : hourOfDay;
     const obj = {
       id: commit,
-      url: "https://github.com/vis-society/lab-7/commit/" + commit,
+      url: "https://github.com/zmosDS/portfolio/commit/" + commit,
       author: first.author,
       date: first.date,
       time: first.time,

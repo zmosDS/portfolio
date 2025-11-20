@@ -75,25 +75,31 @@ d3.select('#scatter-story')
   .data(scrollCommits)
   .join('div')
   .attr('class', 'step')
-  .html(
-    (d, i) => `
-		On ${d.datetime.toLocaleString('en', {
-      dateStyle: 'full',
-      timeStyle: 'short',
-    })},
-		I made <a href="${d.url}" target="_blank">${
-      i > 0 ? 'another glorious commit' : 'my first commit, and it was glorious'
-    }</a>.
-		I edited ${d.totalLines} lines across ${
-      d3.rollups(
-        d.lines,
-        (D) => D.length,
-        (d) => d.file,
-      ).length
-    } files.
-		Then I looked over all I had made, and I saw that it was very good.
-	`,
-  );
+  .html(d => {
+    const fileCounts = d3.rollups(
+      d.lines,
+      D => D.length,
+      line => line.file,
+    );
+    const fileCount = fileCounts.length;
+
+    const typeCounts = d3.rollups(
+      d.lines,
+      D => D.length,
+      line => line.type,
+    ).sort((a, b) => b[1] - a[1]);
+    const topType = typeCounts[0]?.[0] ?? 'code';
+
+    return `
+      On ${d.datetime.toLocaleString('en', {
+        dateStyle: 'full',
+        timeStyle: 'short',
+      })},
+      I made <a href="${d.url}" target="_blank">this commit</a>.
+      I edited ${d.totalLines} lines across ${fileCount} files,
+      mostly in ${topType.toUpperCase()}.
+    `;
+  });
 
 function onStepEnter(response) {
   const el = response?.element;
