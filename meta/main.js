@@ -88,29 +88,53 @@ function processCommits(data) {
   });
 }
 
-// Summary stats
-function renderCommitInfo(data, commits) {
-  const stats = [
-    { label: "COMMITS", value: commits.length },
-    { label: "FILES", value: d3.group(data, d => d.file).size },
-    { label: "TOTAL LOC", value: data.length },
-    { label: "MAX DEPTH", value: d3.max(data, d => d.depth) },
-    { label: "LONGEST LINE", value: d3.max(data, d => d.length) },
-    { label: "MAX LINES", value: d3.max(d3.groups(data, d => d.file).map(([f, lines]) => lines.length)) }
+// Summary stats helpers
+function computeStats(activeData, activeCommits) {
+  return [
+    { label: "COMMITS", value: activeCommits.length },
+    { label: "FILES", value: d3.group(activeData, d => d.file).size },
+    { label: "TOTAL LOC", value: activeData.length },
+    { label: "MAX DEPTH", value: d3.max(activeData, d => d.depth) },
+    { label: "LONGEST LINE", value: d3.max(activeData, d => d.length) },
+    {
+      label: "MAX LINES",
+      value: d3.max(
+        d3.groups(activeData, d => d.file).map(([f, lines]) => lines.length),
+      ),
+    },
   ];
+}
 
-  const container = d3.select("#stats")
-    .append("div")
+// Update summary stats for current selection (or all commits if none)
+export function updateCommitStats(filteredCommits) {
+  const hasData = filteredCommits && filteredCommits.length > 0;
+  const activeCommits = hasData ? filteredCommits : commits;
+  const activeData = hasData
+    ? filteredCommits.flatMap(d => d.lines ?? [])
+    : data;
+
+  const stats = computeStats(activeData, activeCommits);
+
+  const container = d3.select("#stats");
+
+  const summaryBox = container
+    .selectAll("div.summary-box")
+    .data([null])
+    .join("div")
     .attr("class", "summary-box");
 
-  const item = container.selectAll("div.stat")
-    .data(stats)
-    .enter()
-    .append("div")
-    .attr("class", "stat");
+  const items = summaryBox
+    .selectAll("div.stat")
+    .data(stats, d => d.label)
+    .join(enter => {
+      const div = enter.append("div").attr("class", "stat");
+      div.append("div").attr("class", "value");
+      div.append("div").attr("class", "label");
+      return div;
+    });
 
-  item.append("div").attr("class", "value").text(d => d.value);
-  item.append("div").attr("class", "label").text(d => d.label);
+  items.select(".value").text(d => d.value);
+  items.select(".label").text(d => d.label);
 }
 
 // Main chart
@@ -325,5 +349,5 @@ function renderLanguageBreakdown(selection) {
 data = await loadData();
 commits = processCommits(data);
 
-renderCommitInfo(data, commits);
+updateCommitStats(commits);
 renderScatterPlot(data, commits);

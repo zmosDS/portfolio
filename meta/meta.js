@@ -1,5 +1,5 @@
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
-import { commits, updateScatterPlot } from './main.js';
+import { commits, updateScatterPlot, updateCommitStats } from './main.js';
 
 const timeSlider = document.getElementById('commit-progress');
 const commitTimeElement = document.getElementById('commit-time');
@@ -68,6 +68,7 @@ export function onTimeSliderChange() {
 
   updateScatterPlot(filteredCommits);
   updateFileDisplay(filteredCommits);
+  updateCommitStats(filteredCommits);
 }
 
 timeSlider?.addEventListener('input', onTimeSliderChange);
@@ -92,4 +93,3 @@ function initTimeFilter() {
 }
 
 initTimeFilter();
-
