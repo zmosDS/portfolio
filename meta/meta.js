@@ -3,6 +3,7 @@ import { commits, updateScatterPlot, updateCommitStats } from './main.js';
 
 const timeSlider = document.getElementById('commit-progress');
 const commitTimeElement = document.getElementById('commit-time');
+const colors = d3.scaleOrdinal(d3.schemeTableau10);
 
 // Change this between 0 (earliest) and 100 (latest)
 // if you want a different initial slider position.
@@ -33,7 +34,8 @@ function updateFileDisplay(currentCommits) {
 
   const files = d3
     .groups(lines, d => d.file)
-    .map(([name, fileLines]) => ({ name, lines: fileLines }));
+    .map(([name, fileLines]) => ({ name, lines: fileLines }))
+    .sort((a, b) => b.lines.length - a.lines.length);
 
   const filesContainer = container
     .selectAll('div')
@@ -45,8 +47,19 @@ function updateFileDisplay(currentCommits) {
       return div;
     });
 
-  filesContainer.select('dt > code').text(d => d.name);
-  filesContainer.select('dd').text(d => `${d.lines.length} lines`);
+  // filename + line count
+  filesContainer
+    .select('dt > code')
+    .html(d => `${d.name}<small>${d.lines.length} lines</small>`);
+
+  // one dot per line
+  filesContainer
+    .select('dd')
+    .selectAll('div')
+    .data(d => d.lines)
+    .join('div')
+    .attr('class', 'loc')
+    .attr('style', d => `--color: ${colors(d.type)}`);
 }
 
 export function onTimeSliderChange() {
