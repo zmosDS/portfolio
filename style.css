@@ -803,6 +803,10 @@ circle.selected {
   max-width: 20ch;
 }
 
+#scatter-story .step {
+  padding-bottom: 60vh;
+}
+
 #scatter-plot {
   position: sticky;
   top: 0;
