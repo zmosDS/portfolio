@@ -1,15 +1,35 @@
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
-// adjust: chart size
-const width = 1000;
-const height = 600;
+export const width = 1000;
+export const height = 600;
 
-// adjust: outer margins
-const margin = { top: 10, right: 10, bottom: 30, left: 40 };
+export const margin = { top: 10, right: 10, bottom: 30, left: 40 };
+
+const chartArea = {
+  left: margin.left,
+  right: width - margin.right,
+  top: margin.top,
+  bottom: height - margin.bottom,
+  width: width - margin.left - margin.right,
+  height: height - margin.top - margin.bottom,
+};
 
 // shared scales for brush + selection
 let x;
 let y;
+
+let chartSvg;
+let dotsGroup;
+let xAxisGroup;
+let yAxisGroup;
+
+const hourColorScale = d3
+  .scaleSequential()
+  .domain([0, 24])
+  .interpolator(d3.interpolateBlues);
+
+export let data;
+export let commits;
 
 // Load and parse CSV
 async function loadData() {
@@ -78,16 +98,7 @@ function renderCommitInfo(data, commits) {
 
 // Main chart
 function renderScatterPlot(data, commits) {
-  const area = {
-    left: margin.left,
-    right: width - margin.right,
-    top: margin.top,
-    bottom: height - margin.bottom,
-    width: width - margin.left - margin.right,
-    height: height - margin.top - margin.bottom,
-  };
-
-  const svg = d3.select("#chart")
+  chartSvg = d3.select("#chart")
     .append("svg")
     .attr("viewBox", `0 0 ${width} ${height}`)
     .style("overflow", "visible");
@@ -95,59 +106,76 @@ function renderScatterPlot(data, commits) {
   // adjust: time scale on x
   x = d3.scaleTime()
     .domain(d3.extent(commits, d => d.datetime))
-    .range([area.left, area.right])
+    .range([chartArea.left, chartArea.right])
     .nice();
 
   // adjust: y scale (hours of day)
   y = d3.scaleLinear()
     .domain([0, 24])
-    .range([area.bottom, area.top]);
-
-  // adjust: color scale
-  const color = d3.scaleSequential()
-    .domain([0, 24])
-    .interpolator(d3.interpolateBlues);
-
-  const [minLines, maxLines] = d3.extent(commits, d => d.totalLines);
-
-  // adjust: bubble size range
-  const r = d3.scaleSqrt()
-    .domain([minLines, maxLines])
-    .range([2, 30]);
-
-  const sortedCommits = d3.sort(commits, d => -d.totalLines);
+    .range([chartArea.bottom, chartArea.top]);
 
   // gridlines
-  svg.append("g")
+  chartSvg.append("g")
     .attr("class", "grid")
-    .attr("transform", `translate(${area.left}, 0)`)
+    .attr("transform", `translate(${chartArea.left}, 0)`)
     .call(
       d3.axisLeft(y)
         .tickFormat("")
-        .tickSize(-area.width)
+        .tickSize(-chartArea.width)
     );
 
-  svg.append("g")
-    .attr("transform", `translate(0, ${area.bottom})`)
-    .call(d3.axisBottom(x));
+  xAxisGroup = chartSvg.append("g")
+    .attr("class", "x-axis")
+    .attr("transform", `translate(0, ${chartArea.bottom})`)
+    .call(
+      d3.axisBottom(x)
+        .tickFormat(d3.timeFormat("%b %-d"))
+    );
 
-  svg.append("g")
-    .attr("transform", `translate(${area.left}, 0)`)
+  yAxisGroup = chartSvg.append("g")
+    .attr("class", "y-axis")
+    .attr("transform", `translate(${chartArea.left}, 0)`)
     .call(
       d3.axisLeft(y)
         .tickFormat(d => String(d % 24).padStart(2, "0") + ":00")
     );
 
-  // circles
-  svg.append("g")
-    .attr("class", "dots")
+  dotsGroup = chartSvg.append("g")
+    .attr("class", "dots");
+
+  updateScatterPlot(commits);
+
+  createBrushSelector(chartSvg);
+}
+
+export function updateScatterPlot(filteredCommits) {
+  if (!chartSvg || !xAxisGroup || !dotsGroup) return;
+
+  const hasData = filteredCommits && filteredCommits.length > 0;
+  const activeCommits = hasData ? filteredCommits : commits;
+
+  x.domain(d3.extent(activeCommits, d => d.datetime));
+
+  const [minLines, maxLines] = d3.extent(activeCommits, d => d.totalLines);
+  const rScale = d3.scaleSqrt()
+    .domain([minLines, maxLines])
+    .range([2, 30]);
+
+  const xAxis = d3.axisBottom(x).tickFormat(d3.timeFormat("%b %-d"));
+  xAxisGroup
+    .attr("transform", `translate(0, ${chartArea.bottom})`)
+    .call(xAxis);
+
+  const sortedCommits = d3.sort(activeCommits, d => -d.totalLines);
+
+  dotsGroup
     .selectAll("circle")
-    .data(sortedCommits)
+    .data(sortedCommits, d => d.id)
     .join("circle")
     .attr("cx", d => x(d.datetime))
     .attr("cy", d => y(d.hourFrac))
-    .attr("r", d => r(d.totalLines))
-    .attr("fill", d => color(d.hourFrac))
+    .attr("r", d => rScale(d.totalLines))
+    .attr("fill", d => hourColorScale(d.hourFrac))
     .style("fill-opacity", 0.7)
     .on("mouseenter", (event, commit) => {
       d3.select(event.currentTarget).style("fill-opacity", 1);
@@ -159,8 +187,6 @@ function renderScatterPlot(data, commits) {
       d3.select(event.currentTarget).style("fill-opacity", 0.7);
       updateTooltipVisibility(false);
     });
-
-  createBrushSelector(svg);
 }
 
 // Tooltip helpers
@@ -272,8 +298,8 @@ function renderLanguageBreakdown(selection) {
 }
 
 // initialize
-let data = await loadData();
-let commits = processCommits(data);
+data = await loadData();
+commits = processCommits(data);
 
 renderCommitInfo(data, commits);
 renderScatterPlot(data, commits);
