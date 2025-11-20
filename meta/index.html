@@ -8,9 +8,21 @@
     <link rel="stylesheet" href="../style.css"> 
 </head>
 <body>
+  <header> 
     <h1>Meta</h1>
 
     <h3>This page includes stats about the code of this website.</h3>
+  </header> 
+
+  <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
+    <label id="time-filter" style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; width: min(32rem, 100%);">
+      <div style="display: flex; align-items: center; gap: 0.75rem; width: 100%;">
+        <span style="margin-right: auto; white-space: nowrap;">Show commits until:</span>
+        <input id="commit-progress" type="range" min="0" max="100" value="100" style="width: min(24rem, 100%); margin-left: auto;" />
+      </div>
+      <time id="commit-time" style="align-self: flex-end;"></time>
+    </label>
+  </div>
 
     <h2>Codebase Stats</h2>
     <div id="stats"></div>
@@ -34,6 +46,7 @@
     <dl id="language-breakdown" class="language-stats"></dl>
 
     <script type="module" src="../global.js"></script>
+    <script type="module" src="meta.js"></script>
     <script type="module" src="main.js"></script>
 
 </body>
