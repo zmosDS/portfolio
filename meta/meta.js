@@ -105,4 +105,8 @@ function initTimeFilter() {
   onTimeSliderChange();
 }
 
-initTimeFilter();
+if (document.readyState === 'loading') {
+  window.addEventListener('DOMContentLoaded', initTimeFilter);
+} else {
+  initTimeFilter();
+}
