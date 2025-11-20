@@ -672,6 +672,11 @@ circle.selected {
   display: flex;
   justify-content: flex-end;
   margin-top: 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  padding-block: 0.5rem;
+  background: canvas;
 }
 
 #time-filter {
@@ -808,7 +813,7 @@ circle.selected {
 
 #scatter-plot {
   position: sticky;
-  top: 4rem;
+  top: 3.5rem;
   left: 0;
   bottom: auto;
   height: 70vh;

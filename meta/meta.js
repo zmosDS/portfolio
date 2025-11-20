@@ -90,11 +90,13 @@ d3.select('#scatter-story')
     ).sort((a, b) => b[1] - a[1]);
     const topType = typeCounts[0]?.[0] ?? 'code';
 
+    const dateText = d.datetime.toLocaleString('en', {
+      dateStyle: 'full',
+      timeStyle: 'short',
+    });
+
     return `
-      On ${d.datetime.toLocaleString('en', {
-        dateStyle: 'full',
-        timeStyle: 'short',
-      })},
+      On <strong>${dateText}</strong>,
       I made <a href="${d.url}" target="_blank">this commit</a>.
       I edited ${d.totalLines} lines across ${fileCount} files,
       mostly in ${topType.toUpperCase()}.
