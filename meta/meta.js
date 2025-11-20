@@ -3,14 +3,26 @@ import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 const timeSlider = document.getElementById('commit-progress');
 const commitTimeElement = document.getElementById('commit-time');
 
-export let commitProgress = timeSlider ? Number(timeSlider.value) : 100;
+export let commitProgress = timeSlider ? Number(timeSlider.value) : 0;
 export let commitMaxTime = null;
 let timeScale = null;
 
+function updateSliderFill() {
+  if (!timeSlider) return;
+  const min = Number(timeSlider.min ?? 0);
+  const max = Number(timeSlider.max ?? 100);
+  const percent = ((commitProgress - min) / (max - min)) * 100;
+  timeSlider.style.setProperty('--progress', `${percent}%`);
+}
+
 export function onTimeSliderChange() {
-  if (!timeScale || !timeSlider || !commitTimeElement) return;
+  if (!timeSlider) return;
 
   commitProgress = Number(timeSlider.value);
+  updateSliderFill();
+
+  if (!timeScale || !commitTimeElement) return;
+
   commitMaxTime = timeScale.invert(commitProgress);
 
   commitTimeElement.textContent = commitMaxTime.toLocaleString(undefined, {
@@ -21,6 +33,7 @@ export function onTimeSliderChange() {
 }
 
 timeSlider?.addEventListener('input', onTimeSliderChange);
+updateSliderFill();
 
 async function initTimeFilter() {
   if (!timeSlider || !commitTimeElement) return;
