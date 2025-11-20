@@ -703,6 +703,7 @@ circle.selected {
   background: transparent;
   height: 0.4rem;
   margin-left: auto;
+  cursor: pointer;
 }
 
 #commit-progress::-webkit-slider-runnable-track {
@@ -796,12 +797,10 @@ circle.selected {
   gap: 1rem;
 }
 
-#scrolly-1 > * {
-  flex: 1;
-}
-
 #scatter-story {
   position: relative;
+  flex: 0 0 20%;
+  max-width: 20ch;
 }
 
 #scatter-plot {
@@ -810,6 +809,7 @@ circle.selected {
   left: 0;
   bottom: auto;
   height: 70vh;
+  flex: 1 1 0;
 }
 
 #scatter-plot #chart svg {
