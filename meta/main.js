@@ -60,7 +60,7 @@ async function loadData() {
 
 // Group rows by commit
 function processCommits(data) {
-  return d3.groups(data, d => d.commit).map(([commit, lines]) => {
+  const commits = d3.groups(data, d => d.commit).map(([commit, lines]) => {
     const first = lines[0];
     const hourOfDay = first.datetime.getHours() + first.datetime.getMinutes() / 60;
     const hourWrapped = hourOfDay < 6 ? hourOfDay + 24 : hourOfDay;
@@ -86,6 +86,9 @@ function processCommits(data) {
 
     return obj;
   });
+
+  // Ensure commits are in chronological order for scrollytelling
+  return d3.sort(commits, d => d.datetime);
 }
 
 // Summary stats helpers

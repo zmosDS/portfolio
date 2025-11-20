@@ -2,26 +2,12 @@ import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 import { commits, updateScatterPlot, updateCommitStats } from './main.js';
 import scrollama from 'https://cdn.jsdelivr.net/npm/scrollama@3.2.0/+esm';
 
-const timeSlider = document.getElementById('commit-progress');
 const commitTimeElement = document.getElementById('commit-time');
 const colors = d3.scaleOrdinal(d3.schemeTableau10);
 
-// Change this between 0 (earliest) and 100 (latest)
-// if you want a different initial slider position.
-const INITIAL_PROGRESS = 100;
-
-let commitProgress = INITIAL_PROGRESS;
 let commitMaxTime = null;
-let timeScale = null;
 let filteredCommits = commits;
-
-function updateSliderFill() {
-  if (!timeSlider) return;
-  const min = Number(timeSlider.min ?? 0);
-  const max = Number(timeSlider.max ?? 100);
-  const percent = ((commitProgress - min) / (max - min)) * 100;
-  timeSlider.style.setProperty('--progress', `${percent}%`);
-}
+const scrollCommits = commits.slice().reverse();
 
 function updateFileDisplay(currentCommits) {
   const container = d3.select('#files');
@@ -63,15 +49,12 @@ function updateFileDisplay(currentCommits) {
     .attr('style', d => `--color: ${colors(d.type)}`);
 }
 
-export function onTimeSliderChange() {
-  if (!timeSlider) return;
+function initTimeFilter() {
+  if (!commitTimeElement || !commits || commits.length === 0) return;
 
-  commitProgress = Number(timeSlider.value);
-  updateSliderFill();
-
-  if (!timeScale || !commitTimeElement) return;
-
-  commitMaxTime = timeScale.invert(commitProgress);
+  // Start with the most recent commit (show all history)
+  const latestCommit = commits[commits.length - 1];
+  commitMaxTime = latestCommit.datetime;
   filteredCommits = commits.filter(d => d.datetime <= commitMaxTime);
 
   commitTimeElement.textContent = commitMaxTime.toLocaleString(undefined, {
@@ -85,32 +68,11 @@ export function onTimeSliderChange() {
   updateCommitStats(filteredCommits);
 }
 
-timeSlider?.addEventListener('input', onTimeSliderChange);
-
-function initTimeFilter() {
-  if (!timeSlider || !commitTimeElement || !commits || commits.length === 0) return;
-
-  timeSlider.value = String(INITIAL_PROGRESS);
-  commitProgress = INITIAL_PROGRESS;
-  updateSliderFill();
-
-  const sliderRange = [
-    Number(timeSlider.min ?? 0),
-    Number(timeSlider.max ?? 100),
-  ];
-
-  timeScale = d3.scaleTime()
-    .domain(d3.extent(commits, d => d.datetime))
-    .range(sliderRange);
-
-  onTimeSliderChange();
-}
-
 initTimeFilter();
 
 d3.select('#scatter-story')
   .selectAll('.step')
-  .data(commits)
+  .data(scrollCommits)
   .join('div')
   .attr('class', 'step')
   .html(
@@ -134,20 +96,15 @@ d3.select('#scatter-story')
   );
 
 function onStepEnter(response) {
-  const commit = response?.element?.__data__;
-  if (!commit || !timeScale || !commitTimeElement) return;
+  const el = response?.element;
+  const commit = el?.__data__;
+  if (!commit || !commitTimeElement) return;
 
-  // Set max time to the commit's datetime
+  // Visually mark the active step (optional, but clarifying)
+  d3.selectAll('#scatter-story .step').classed('is-active', false);
+  d3.select(el).classed('is-active', true);
+
   commitMaxTime = commit.datetime;
-
-  // Move the slider to match this commit
-  if (timeSlider) {
-    commitProgress = timeScale(commitMaxTime);
-    timeSlider.value = String(commitProgress);
-    updateSliderFill();
-  }
-
-  // Filter commits up to this time
   filteredCommits = commits.filter(d => d.datetime <= commitMaxTime);
 
   // Update the time label
