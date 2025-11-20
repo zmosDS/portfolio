@@ -23,10 +23,24 @@ let dotsGroup;
 let xAxisGroup;
 let yAxisGroup;
 
+// Color scale: night = blue, day = orange.
+// 0h  → deep blue, 12h → orange, 24h → deep blue.
+const nightColor = d3.rgb("#1d4ed8");   // rich blue
+const dayColor = d3.rgb("#de6118");     // matches existing orange
+const nightToDay = d3.interpolateRgb(nightColor, dayColor);
+const dayToNight = d3.interpolateRgb(dayColor, nightColor);
+
 const hourColorScale = d3
-  .scaleSequential()
-  .domain([0, 24])
-  .interpolator(d3.interpolateBlues);
+  .scaleSequential((t) => {
+    // t is normalized 0–1 fraction of the day
+    if (t <= 0.5) {
+      // midnight → noon: blue → orange
+      return nightToDay(t * 2);
+    }
+    // noon → midnight: orange → blue
+    return dayToNight((t - 0.5) * 2);
+  })
+  .domain([0, 24]);
 
 export let data;
 export let commits;
@@ -48,6 +62,8 @@ async function loadData() {
 function processCommits(data) {
   return d3.groups(data, d => d.commit).map(([commit, lines]) => {
     const first = lines[0];
+    const hourOfDay = first.datetime.getHours() + first.datetime.getMinutes() / 60;
+    const hourWrapped = hourOfDay < 6 ? hourOfDay + 24 : hourOfDay;
     const obj = {
       id: commit,
       url: "https://github.com/vis-society/lab-7/commit/" + commit,
@@ -56,7 +72,8 @@ function processCommits(data) {
       time: first.time,
       timezone: first.timezone,
       datetime: first.datetime,
-      hourFrac: first.datetime.getHours() + first.datetime.getMinutes() / 60,
+      hourFrac: hourOfDay,
+      hourWrapped,
       totalLines: lines.length,
     };
 
@@ -111,7 +128,7 @@ function renderScatterPlot(data, commits) {
 
   // adjust: y scale (hours of day)
   y = d3.scaleLinear()
-    .domain([0, 24])
+    .domain([30, 6]) // flipped: 6 AM at bottom, wraps through the night
     .range([chartArea.bottom, chartArea.top]);
 
   // gridlines
@@ -137,7 +154,14 @@ function renderScatterPlot(data, commits) {
     .attr("transform", `translate(${chartArea.left}, 0)`)
     .call(
       d3.axisLeft(y)
-        .tickFormat(d => String(d % 24).padStart(2, "0") + ":00")
+        // Explicit ticks so we don't repeat 6 AM at top + bottom:
+        // 6, 8, 10, ..., 28 (which formats to 4 AM).
+        .tickValues(d3.range(6, 30, 2))
+        .tickFormat(d => {
+          const h = (d % 24 + 24) % 24; // 0–23
+          const date = new Date(2000, 0, 1, h);
+          return d3.timeFormat("%-I %p")(date); // e.g. "6 AM", "8 AM", ..., "4 AM"
+        })
     );
 
   dotsGroup = chartSvg.append("g")
@@ -173,7 +197,7 @@ export function updateScatterPlot(filteredCommits) {
     .data(sortedCommits, d => d.id)
     .join("circle")
     .attr("cx", d => x(d.datetime))
-    .attr("cy", d => y(d.hourFrac))
+    .attr("cy", d => y(d.hourWrapped))
     .attr("r", d => rScale(d.totalLines))
     .attr("fill", d => hourColorScale(d.hourFrac))
     .style("fill-opacity", 0.7)
@@ -241,7 +265,7 @@ function isCommitSelected(selection, commit) {
   const [[x0, y0], [x1, y1]] = selection;
 
   const cx = x(commit.datetime);
-  const cy = y(commit.hourFrac);
+  const cy = y(commit.hourWrapped);
 
   return x0 <= cx && cx <= x1 && y0 <= cy && cy <= y1;
 }
