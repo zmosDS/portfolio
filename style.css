@@ -602,10 +602,6 @@ circle {
   transition: 200ms;
   transform-origin: center;
   transform-box: fill-box;
-
-  @starting-style {
-    r: 0;
-  }
 }
 
 @keyframes marching-ants {
@@ -669,84 +665,33 @@ circle.selected {
   line-height: 1.4;
 }
 
-.time-filter-wrapper {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 1.5rem;
-}
-
 #time-filter {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  width: min(32rem, 100%);
-  align-items: flex-end;
-}
-
-.time-filter-row {
-  display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 0.75rem;
-  width: 100%;
-}
-
-#time-filter span {
-  white-space: nowrap;
-  margin-right: auto;
 }
 
 #commit-progress {
-  width: min(24rem, 100%);
-  --progress: 0%;
-  --slider-fill: var(--orange);
-  --track-color: #c7cad1;
-  appearance: none;
-  background: transparent;
-  height: 0.4rem;
-  margin-left: auto;
+  flex: 1;
+  min-width: 20rem; /* adjust as desired */
 }
 
-#commit-progress::-webkit-slider-runnable-track {
-  height: 0.4rem;
-  border-radius: 999px;
-  background: linear-gradient(
-    to right,
-    var(--slider-fill) 0%,
-    var(--slider-fill) var(--progress),
-    var(--track-color) var(--progress),
-    var(--track-color) 100%
-  );
+#files {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+
+  > div {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+
+  dt {
+    grid-column: 1;
+  }
+
+  dd {
+    grid-column: 2;
+  }
 }
 
-#commit-progress::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 1rem;
-  height: 1rem;
-  border-radius: 50%;
-  background: canvas;
-  border: 2px solid var(--slider-fill);
-  margin-top: -0.3rem;
-  box-shadow: 0 0 4px rgb(0 0 0 / 0.2);
-}
-
-#commit-progress::-moz-range-track {
-  height: 0.4rem;
-  border-radius: 999px;
-  background: var(--track-color);
-}
-
-#commit-progress::-moz-range-progress {
-  height: 0.4rem;
-  border-radius: 999px;
-  background: var(--slider-fill);
-}
-
-#commit-progress::-moz-range-thumb {
-  width: 1rem;
-  height: 1rem;
-  border-radius: 50%;
-  background: canvas;
-  border: 2px solid var(--slider-fill);
-  box-shadow: 0 0 4px rgb(0 0 0 / 0.2);
-}
