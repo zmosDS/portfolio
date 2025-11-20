@@ -797,7 +797,7 @@ circle.selected {
 }
 
 #scatter-story .step {
-  padding-bottom: 20vh;
+  padding-bottom: 8vh;
   opacity: 0.5;
   transition: opacity 200ms;
 }
@@ -808,7 +808,7 @@ circle.selected {
 
 #scatter-plot {
   position: sticky;
-  top: 0;
+  top: 4rem;
   left: 0;
   bottom: auto;
   height: 70vh;

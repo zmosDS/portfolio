@@ -131,5 +131,6 @@ scroller
   .setup({
     container: '#scrolly-1',
     step: '#scrolly-1 .step',
+    offset: 0.33,
   })
   .onStepEnter(onStepEnter);
