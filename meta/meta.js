@@ -96,7 +96,7 @@ d3.select('#scatter-story')
     });
 
     return `
-      On <strong>${dateText}</strong>,
+      <strong>${dateText}</strong>,
       I made <a href="${d.url}" target="_blank">this commit</a>.
       I edited ${d.totalLines} lines across ${fileCount} files,
       mostly in ${topType.toUpperCase()}.

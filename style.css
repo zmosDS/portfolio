@@ -672,11 +672,14 @@ circle.selected {
   display: flex;
   justify-content: flex-end;
   margin-top: 1.5rem;
+}
+
+#meta-scroll-anchor {
   position: sticky;
   top: 0;
   z-index: 5;
-  padding-block: 0.5rem;
   background: canvas;
+  padding-block: 0.5rem 1rem;
 }
 
 #time-filter {
@@ -813,10 +816,10 @@ circle.selected {
 
 #scatter-plot {
   position: sticky;
-  top: 3.5rem;
+  top: 20rem;
   left: 0;
   bottom: auto;
-  height: 70vh;
+  height: 65vh;
   flex: 1 1 0;
 }
 
