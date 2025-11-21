@@ -12,11 +12,13 @@
 
   <h3>Explore selected projects highlighting data analysis, visualization, and applied machine learning.</h3>
 
+  <!-- Year breakdown: pie chart + legend -->
   <div class="chart-container">
     <svg id="pieChart" viewBox="-50 -50 100 100"></svg>
     <ul class="legend"></ul>
   </div>
 
+  <!-- Live search across all project text -->
   <input
   class="searchBar"
   type="search"
@@ -24,6 +26,7 @@
   placeholder="🔍 Search projects…"
 />
 
+  <!-- Project cards injected via JS -->
   <div class="projects"></div>
 
   <script type="module" src="../global.js"></script>

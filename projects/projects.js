@@ -7,29 +7,26 @@
    - live search with year filter stacking
    ===================================================== */
 
-
-/* --- Imports --- */
+/* ---------- Imports ---------- */
 import { fetchJSON, renderProjects, BASE_PATH } from '../global.js';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
 
-/* --- Load project data --- */
+/* ---------- Data + State ---------- */
 const projects = await fetchJSON('lib/projects.json');
-
-
-/* --- Shared filter state --- */
 let selectedYear = null;   // null = no year filter
 let searchQuery = '';      // lowercase string from search input
 
 
-/* --- DOM references --- */
+/* ---------- DOM References ---------- */
 const projectsContainer = document.querySelector('.projects');
 const svg = d3.select('#pieChart');
 const legend = d3.select('.legend');
 const searchInput = document.querySelector('.searchBar');
 
 
-/* --- Convert project list → [{label, value}] per year --- */
+/* ---------- Helpers ---------- */
+// Convert project list → [{label, value}] per year
 const toYearCounts = (list) => {
   const rolled = d3.rollups(list, v => v.length, d => d.year);
   return rolled
@@ -38,18 +35,16 @@ const toYearCounts = (list) => {
 };
 
 
-/* --- Combine filtering (search + year) --- */
+// Combine filtering (search + year)
 function getFilteredList() {
   let list = projects;
 
-  // search filter
   if (searchQuery) {
     list = list.filter(p =>
       Object.values(p).join(' ').toLowerCase().includes(searchQuery)
     );
   }
 
-  // year filter
   if (selectedYear) {
     list = list.filter(p => String(p.year) === selectedYear);
   }
@@ -58,7 +53,7 @@ function getFilteredList() {
 }
 
 
-/* --- Render All (cards + chart) --- */
+/* ---------- Rendering ---------- */
 function renderAll() {
   const list = getFilteredList();
 
@@ -83,7 +78,7 @@ function renderAll() {
 }
 
 
-/* --- Draw pie chart + legend --- */
+// Draw pie chart + legend
 function drawChart(data) {
   svg.selectAll('*').remove();
   legend.selectAll('*').remove();
@@ -101,7 +96,7 @@ function drawChart(data) {
   const pie = d3.pie().value(d => d.value);
   const arcs = pie(data);
 
-  /* --- PIE SLICES --- */
+  /* --- Pie slices --- */
   svg.selectAll('path')
     .data(arcs)
     .enter()
@@ -115,7 +110,7 @@ function drawChart(data) {
       renderAll();
     });
 
-  /* --- LEGEND --- */
+  /* --- Legend --- */
   legend.selectAll('li')
     .data(data)
     .enter()
@@ -130,12 +125,12 @@ function drawChart(data) {
 }
 
 
-/* --- Search input --- */
+/* ---------- Events ---------- */
 searchInput.addEventListener('input', (e) => {
   searchQuery = e.target.value.toLowerCase();
   renderAll();
 });
 
 
-/* --- Initial load --- */
+/* ---------- Initial load ---------- */
 renderAll();

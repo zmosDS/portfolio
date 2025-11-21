@@ -1,19 +1,21 @@
 /* =====================================================
    GLOBAL.JS
-   Builds navigation and handles global helpers.
-   Works both locally (Live Server) and on GitHub Pages.
+   Shared utilities + navigation used across pages.
+   Designed to work locally (Live Server) and GitHub Pages.
    ===================================================== */
 
-console.log("IT’S ALIVE!"); // quick test that JS is running
+console.log("JS loaded"); // sanity check that modules are running
 
 
-/* --- Helper: $$ (query selector all) --- */
+/* ---------- DOM Helpers ---------- */
+// Helper: $$ (query selector all)
 export function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 
 
-/* --- List of pages for the nav --- */
+/* ---------- Routing Helpers ---------- */
+// List of pages for the nav (edit here when adding pages)
 const pages = [
   { url: "",            title: "Home" },
   { url: "projects/",   title: "Projects" },
@@ -24,11 +26,11 @@ const pages = [
 ];
 
 
-/* --- Detect if running locally or on GitHub Pages --- */
+// Detect if running locally or on GitHub Pages
 const isLocal = ["localhost", "127.0.0.1", "::1"].includes(location.hostname);
 
 
-/* --- Function to find the correct base folder for links --- */
+// Find the correct base folder for links
 function detectBasePath() {
   if (isLocal) return "/";
 
@@ -52,7 +54,7 @@ const normalizePath = (p) =>
   p.replace(/index\.html?$/i, "").replace(/\/+$/, "/");
 
 
-/* --- Save current page info --- */
+// Save current page info
 const currentHost = location.host;
 const currentPath = normalizePath(location.pathname);
 
@@ -149,8 +151,7 @@ for (const p of pages) {
    - loading project data
    - rendering project cards
    - working paths for both local + GitHub Pages
-   ===================================================== *
-
+   ===================================================== */
 
 /* --- Fetch JSON (local + GitHub Pages safe) --- */
 export async function fetchJSON(path) {

@@ -610,6 +610,7 @@ circle {
   }
 }
 
+/* Brush selection rectangle */
 .selection {
   fill-opacity: 0.1;
   stroke: black;
@@ -620,15 +621,6 @@ circle {
 
 circle.selected {
   fill: #ff6b6b;
-}
-
-/* Brush selection rectangle */
-.selection {
-  fill-opacity: 0.1;
-  stroke: black;
-  stroke-opacity: 0.7;
-  stroke-dasharray: 5 3;
-  animation: marching-ants 2s linear infinite;
 }
 
 /* Tooltip hidden state (matches #commit-tooltip id) */

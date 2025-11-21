@@ -1,5 +1,12 @@
+/* =====================================================
+   META MAIN
+   Core logic for the meta analytics page (commits + LOC).
+   ===================================================== */
+
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
+
+/* ---------- Chart layout ---------- */
 export const width = 1000;
 export const height = 600;
 
@@ -18,34 +25,33 @@ const chartArea = {
 let x;
 let y;
 
+// chart handles reused across renders
 let chartSvg;
 let dotsGroup;
 let xAxisGroup;
 let yAxisGroup;
 
-// Color scale: night = blue, day = orange.
-// 0h  → deep blue, 12h → orange, 24h → deep blue.
-const nightColor = d3.rgb("#1d4ed8");   // rich blue
-const dayColor = d3.rgb("#de6118");     // matches existing orange
+
+/* ---------- Color scale (day/night) ---------- */
+// 0h → deep blue, 12h → orange, 24h → deep blue.
+const nightColor = d3.rgb("#1d4ed8");
+const dayColor = d3.rgb("#de6118");
 const nightToDay = d3.interpolateRgb(nightColor, dayColor);
 const dayToNight = d3.interpolateRgb(dayColor, nightColor);
 
 const hourColorScale = d3
   .scaleSequential((t) => {
     // t is normalized 0–1 fraction of the day
-    if (t <= 0.5) {
-      // midnight → noon: blue → orange
-      return nightToDay(t * 2);
-    }
-    // noon → midnight: orange → blue
-    return dayToNight((t - 0.5) * 2);
+    if (t <= 0.5) return nightToDay(t * 2);     // midnight → noon: blue → orange
+    return dayToNight((t - 0.5) * 2);           // noon → midnight: orange → blue
   })
   .domain([0, 24]);
 
 export let data;
 export let commits;
 
-// Load and parse CSV
+
+/* ---------- Data loading ---------- */
 async function loadData() {
   const data = await d3.csv("loc.csv", row => ({
     ...row,
@@ -58,7 +64,8 @@ async function loadData() {
   return data;
 }
 
-// Group rows by commit
+
+/* ---------- Commit grouping ---------- */
 function processCommits(data) {
   const commits = d3.groups(data, d => d.commit).map(([commit, lines]) => {
     const first = lines[0];
@@ -91,7 +98,8 @@ function processCommits(data) {
   return d3.sort(commits, d => d.datetime);
 }
 
-// Summary stats helpers
+
+/* ---------- Stats helpers ---------- */
 function computeStats(activeData, activeCommits) {
   return [
     { label: "COMMITS", value: activeCommits.length },
@@ -140,7 +148,8 @@ export function updateCommitStats(filteredCommits) {
   items.select(".label").text(d => d.label);
 }
 
-// Main chart
+
+/* ---------- Main scatter chart ---------- */
 function renderScatterPlot(data, commits) {
   chartSvg = d3.select("#chart")
     .append("svg")
@@ -199,6 +208,7 @@ function renderScatterPlot(data, commits) {
   createBrushSelector(chartSvg);
 }
 
+
 export function updateScatterPlot(filteredCommits) {
   if (!chartSvg || !xAxisGroup || !dotsGroup) return;
 
@@ -246,7 +256,8 @@ export function updateScatterPlot(filteredCommits) {
     });
 }
 
-// Tooltip helpers
+
+/* ---------- Tooltip helpers ---------- */
 function renderTooltipContent(commit) {
   const link = document.getElementById('commit-link');
   const date = document.getElementById('commit-date');
@@ -269,7 +280,8 @@ function updateTooltipPosition(event) {
   tooltip.style.top = `${event.clientY + 10}px`;
 }
 
-// brush overlay
+
+/* ---------- Brush selection UI ---------- */
 function createBrushSelector(svg) {
   svg.append("g")
     .attr("class", "brush")
@@ -356,7 +368,8 @@ function renderLanguageBreakdown(selection) {
   }
 }
 
-// initialize
+
+/* ---------- Kickoff ---------- */
 data = await loadData();
 commits = processCommits(data);
 

@@ -1,3 +1,8 @@
+/* =====================================================
+   META PAGE CONTROLLER
+   Handles commit filtering + scrollytelling.
+   ===================================================== */
+
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 import { commits, updateScatterPlot, updateCommitStats } from './main.js';
 import scrollama from 'https://cdn.jsdelivr.net/npm/scrollama@3.2.0/+esm';
@@ -9,6 +14,8 @@ let commitMaxTime = null;
 let filteredCommits = commits;
 const scrollCommits = commits.slice().reverse();
 
+
+/* ---------- File/LOC panel ---------- */
 function updateFileDisplay(currentCommits) {
   const container = d3.select('#files');
 
@@ -49,6 +56,8 @@ function updateFileDisplay(currentCommits) {
     .attr('style', d => `--color: ${colors(d.type)}`);
 }
 
+
+/* ---------- Time filter (slider + story) ---------- */
 function initTimeFilter() {
   if (!commitTimeElement || !commits || commits.length === 0) return;
 
@@ -70,6 +79,8 @@ function initTimeFilter() {
 
 initTimeFilter();
 
+
+/* ---------- Scrollytelling setup ---------- */
 d3.select('#scatter-story')
   .selectAll('.step')
   .data(scrollCommits)
