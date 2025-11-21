@@ -693,63 +693,7 @@ circle.selected {
 #time-filter span {
   white-space: nowrap;
   margin-right: 0.5rem;
-}
-
-#commit-progress {
-  width: min(24rem, 100%);
-  --progress: 0%;
-  --slider-fill: var(--orange);
-  --track-color: #c7cad1;
-  appearance: none;
-  background: transparent;
-  height: 0.4rem;
-  margin-left: auto;
-  cursor: pointer;
-}
-
-#commit-progress::-webkit-slider-runnable-track {
-  height: 0.4rem;
-  border-radius: 999px;
-  background: linear-gradient(
-    to right,
-    var(--slider-fill) 0%,
-    var(--slider-fill) var(--progress),
-    var(--track-color) var(--progress),
-    var(--track-color) 100%
-  );
-}
-
-#commit-progress::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 1rem;
-  height: 1rem;
-  border-radius: 50%;
-  background: canvas;
-  border: 2px solid var(--slider-fill);
-  margin-top: -0.3rem;
-  box-shadow: 0 0 4px rgb(0 0 0 / 0.2);
-}
-
-#commit-progress::-moz-range-track {
-  height: 0.4rem;
-  border-radius: 999px;
-  background: var(--track-color);
-}
-
-#commit-progress::-moz-range-progress {
-  height: 0.4rem;
-  border-radius: 999px;
-  background: var(--slider-fill);
-}
-
-#commit-progress::-moz-range-thumb {
-  width: 1rem;
-  height: 1rem;
-  border-radius: 50%;
-  background: canvas;
-  border: 2px solid var(--slider-fill);
-  box-shadow: 0 0 4px rgb(0 0 0 / 0.2);
+  font-weight: 800;
 }
 
 #files {
@@ -802,6 +746,8 @@ circle.selected {
   position: relative;
   flex: 0 0 20%;
   max-width: 20ch;
+  padding-right: 1rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 #scatter-story .step {
@@ -812,6 +758,11 @@ circle.selected {
 
 #scatter-story .step.is-active {
   opacity: 1;
+}
+
+#scatter-story .step.is-hover {
+  opacity: 1;
+  text-decoration: underline;
 }
 
 #scatter-plot {
@@ -826,4 +777,18 @@ circle.selected {
 #scatter-plot #chart svg {
   width: 100%;
   height: 100%;
+}
+
+.chart-caption {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  text-align: right;
+}
+
+.files-caption {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
 }

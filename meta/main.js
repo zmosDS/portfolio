@@ -233,10 +233,16 @@ export function updateScatterPlot(filteredCommits) {
       renderTooltipContent(commit);
       updateTooltipVisibility(true);
       updateTooltipPosition(event);
+
+      // highlight matching scrollytelling step
+      d3.selectAll('#scatter-story .step').classed('is-hover', false);
+      d3.select(`#scatter-story .step[data-commit-id="${commit.id}"]`)
+        .classed('is-hover', true);
     })
     .on("mouseleave", event => {
       d3.select(event.currentTarget).style("fill-opacity", 0.7);
       updateTooltipVisibility(false);
+      d3.selectAll('#scatter-story .step').classed('is-hover', false);
     });
 }
 
@@ -303,9 +309,11 @@ function renderSelectionCount(selection) {
     : [];
 
   const countElement = document.querySelector('#selection-count');
-  countElement.textContent = `${
-    selectedCommits.length || 'No'
-  } commits selected`;
+  if (selection && selectedCommits.length > 0) {
+    countElement.textContent = `${selectedCommits.length} commits selected`;
+  } else {
+    countElement.textContent = 'Drag in the chart to select commits';
+  }
 
   return selectedCommits;
 }

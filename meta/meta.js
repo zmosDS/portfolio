@@ -75,6 +75,7 @@ d3.select('#scatter-story')
   .data(scrollCommits)
   .join('div')
   .attr('class', 'step')
+  .attr('data-commit-id', d => d.id)
   .html(d => {
     const fileCounts = d3.rollups(
       d.lines,
