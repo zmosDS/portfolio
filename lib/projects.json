@@ -1,5 +1,13 @@
 [
 	{
+		"title": "The Hidden Shape of Recessions: Industry Declines & Recoveries 1995–2024",
+		"year": "2025",
+		"image": "images/recession_analysis.png",
+		"description": "Interactive explorable explanation of how major U.S. industries lose and regain jobs across the 2001, 2008, and 2020 recessions.",
+		"live": "https://zmosds.github.io/recession_impact_analysis/",
+		"code": "https://github.com/zmosDS/recession_impact_analysis"
+	},
+	{
 		"title": "Boston Bike Traffic",
 		"year": "2025",
 		"image": "images/boston_bike_traffic.png",
