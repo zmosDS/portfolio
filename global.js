@@ -100,52 +100,6 @@ for (const p of pages) {
 
 
 /* =====================================================
-   DARK MODE SWITCH
-   Creates a small theme dropdown and persists choice.
-   ===================================================== */
-
-(function () {
-  // Build dropdown at top of <body>
-  document.body.insertAdjacentHTML(
-    'afterbegin',
-    `
-      <label class="color-scheme">
-        Theme:
-        <select>
-          <option value="light dark">Automatic</option>
-          <option value="light">Light</option>
-          <option value="dark">Dark</option>
-        </select>
-      </label>
-    `
-  );
-
-  const select = document.querySelector('.color-scheme select');
-
-  function setColorScheme(value) {
-    document.documentElement.style.setProperty('color-scheme', value);
-    select.value = value;
-
-    // Save preference (except for Automatic)
-    if (value === 'light dark') {
-      localStorage.removeItem('colorScheme');
-    } else {
-      localStorage.colorScheme = value;
-    }
-  }
-
-  // Load saved or default setting
-  const saved = localStorage.colorScheme;
-  setColorScheme(saved || 'light dark');
-
-  // Listen for user change
-  select.addEventListener('input', (e) => {
-    setColorScheme(e.target.value);
-  });
-})();
-
-
-/* =====================================================
    PROJECTS
    Handles:
    - loading project data

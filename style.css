@@ -145,6 +145,18 @@ form button {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 3;  /* h2, img, p */
+  padding: 1rem;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  box-shadow: 0 1px 0 var(--ring);
+  transition: box-shadow 150ms ease, transform 150ms ease, border-color 150ms ease;
+}
+
+.projects article:hover {
+  border-color: oklch(70% 0.12 45);
+  box-shadow: 0 6px 18px var(--ring);
+  transform: translateY(-2px);
 }
 
 /* ---- Titles & Images ---- */
@@ -407,19 +419,6 @@ h2, h3, h4, h5, h6 {
   border-bottom: 2px solid var(--color-accent);
 }
 .cv .download a:hover { border-bottom-width: .4em; }
-
-/* =========================================
-   THEME SWITCHER (UI)
-   ========================================= */
-
-label.color-scheme {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 0.875rem;
-  font-family: inherit;
-}
-label.color-scheme select { font: inherit; }
 
 /* =========================================
    DARK MODE
