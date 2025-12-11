@@ -7,6 +7,13 @@
 		"live": "https://zmosds.github.io/recession_impact_analysis/",
 		"code": "https://github.com/zmosDS/recession_impact_analysis"
 	},
+		{
+		"title": "Recommendation System for Amazon Sports & Outdoor Products",
+		"year": "2025",
+		"image": "images/amazon_recommender.png",
+		"description": "End-to-end recommender system built from 4M+ Amazon Sports & Outdoors reviews, featuring large-scale preprocessing, feature engineering, and hybrid modeling (SVD + Ridge) to predict ratings and generate personalized top-10 product recommendations.",
+		"code": "https://github.com/zmosDS/amazon_sports_recommender"
+	},
 	{
 		"title": "Boston Bike Traffic",
 		"year": "2025",
