@@ -339,6 +339,26 @@ h2, h3, h4, h5, h6 {
 .cv .bullets { margin: .35rem 0 0; }
 .cv .bullets li { margin: .2rem 0; }
 
+/* ---- Projects: tighter spacing + bullets ---- */
+.cv section[aria-labelledby="proj"] article > p {
+  margin: 0.15rem 0 0.2rem; /* small gap under title and before bullets */
+}
+
+.cv section[aria-labelledby="proj"] .bullets {
+  margin: 0.15rem 0 0.4rem;
+  padding-left: 1.1rem;    /* reduce indent of bullet points */
+  margin-left: 0;
+}
+
+.cv section[aria-labelledby="proj"] .bullets li {
+  margin: 0.15rem 0;
+}
+
+/* small separation between individual projects */
+.cv section[aria-labelledby="proj"] article + article {
+  margin-top: 0.5rem;
+}
+
 /* ---- Inline Degrees ---- */
 .inline-degrees { margin: 0; }
 .inline-degrees em { font-style: italic; }

@@ -87,26 +87,41 @@
           <p class="links"><a href="https://github.com/vve">Full Project</a>
           </p>
         </header>
+        <p>End-to-end vehicle price prediction dashboard using scraped data from Cars.com.</p>
         <ul class="bullets">
-          <li>Built ETL pipeline to ingest/clean 80K+ listings from Cars.com.</li>
-          <li>Engineered features (trim, mileage, year, body style); price trends via EDA.</li>
-          <li>Trained LightGBM (MAE ~$1.7K, R² ≈ 0.96) on mixed features.</li>
-          <li>Deployed interactive Dash/Plotly app for real-time pricing insights.</li>
+          <li>Built ML pipeline: scraped 84K+ listings, engineered features, analyzed depreciation trends.</li>
+          <li>Evaluated 4+ models (RF, XGBoost, CatBoost, LightGBM); final model: MAE $1.7K, R² 0.96.</li>
+          <li>Validated on new data collected 1 month later, maintained R² &gt; 0.95 despite market fluctuations.</li>
         </ul>
       </article>
 
       <article>
         <header class="proj-head">
-          <h3 class="title">NYC Yellow Taxi Fare Predictor <span class="muted">(Academic Project)</span></h3>
+          <h3 class="title">NYC Yellow Taxi Fare Prediction <span class="muted">(Academic Project)</span></h3>
           <p class="links"><a href="https://github.com/myfork">My Contributions</a> · 
           <a href="https://github.com/full">Full Project</a>
           </p>
         </header>
+        <p>Large-scale predictive modeling using Apache Spark and LightGBM on 150M+ NYC taxi trip records.</p>
         <ul class="bullets">
-          <li>Analyzed 150M+ rides on SDSC supercomputer; 3rd place in competition.</li>
-          <li>EDA on 20GB+ trip data; engineered time/efficiency features; outlier handling.</li>
-          <li>Developed fare predictor (MAE ~$1.91, R² ≈ 0.94) and tip classifier (~79% accuracy).</li>
-          <li>Benchmarked against baseline regression, achieving 36% RMSE reduction with LightGBM.</li>
+          <li>Analyzed 20GB+ trip data on SDSC supercomputer; engineered time/efficiency features, handled outliers.</li>
+          <li>Developed fare predictor (MAE $1.91, R² ≈ 0.94) and tip classifier (79% accuracy).</li>
+          <li>Achieved 36% RMSE reduction vs baseline regression; earned 3rd place in class competition.</li>
+        </ul>
+      </article>
+
+      <article>
+        <header class="proj-head">
+          <h3 class="title">Amazon Sports &amp; Outdoor Products Recommender System <span class="muted">(Academic Project)</span></h3>
+          <p class="links">
+            <a href="https://github.com/zmosDS/amazon_sports_recommender/tree/main">Full Project</a>
+          </p>
+        </header>
+        <p>Hybrid recommender system (SVD + Ridge) built from 4M+ reviews for top-10 recommendations.</p>
+        <ul class="bullets">
+          <li>Processed 4M+ reviews and metadata; engineered user/item features, handled extreme sparsity (99.998%).</li>
+          <li>Built weighted hybrid (0.6 SVD + 0.4 Ridge) achieving 31.5% RMSE improvement over baseline.</li>
+          <li>Achieved nDCG@10 of 0.9981 for top-10 rankings, demonstrating near-optimal quality.</li>
         </ul>
       </article>
     </section>
@@ -114,9 +129,9 @@
     <!-- SKILLS -->
     <section aria-labelledby="skills">
       <h2 id="skills">Skills</h2>
-      <p><strong>Languages & Tools:</strong> Python (Pandas, NumPy, Scikit-learn, Plotly, Matplotlib, Seaborn), SQL (PostgreSQL, MySQL), D3.js, Tableau, Power BI, Git, JavaScript, Streamlit, Azure, AWS, Excel</p>
-      <p><strong>ML & Analytics:</strong> Statistical Analysis, Regression, Classification, NLP, A/B Testing, Feature Engineering, Cross-Validation, Model Evaluation</p>
-      <p><strong>Big Engineering:</strong> ETL, APIs, Spark, Dask, Data Pipelines</p>
+      <p><strong>Languages &amp; Tools:</strong> Python (Pandas, NumPy, Scikit-learn, Surprise, Plotly, Matplotlib, Seaborn), SQL (PostgreSQL, MySQL), D3.js, Tableau, Power BI, Git, JavaScript, Streamlit, Azure, AWS, Excel, Jupyter</p>
+      <p><strong>ML &amp; Analytics:</strong> Statistical Analysis, Recommender Systems, Regression, Classification, NLP, A/B Testing, Feature Engineering, Cross-Validation, Model Evaluation, Ranking Metrics (nDCG, Precision/Recall@K)</p>
+      <p><strong>Data Engineering:</strong> ETL, APIs, Spark, Dask, Data Pipelines, Large-Scale Data Processing</p>
     </section>
 
     <!-- WORK EXPERIENCE -->
