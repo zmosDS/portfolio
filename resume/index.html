@@ -22,48 +22,48 @@
 <section aria-labelledby="edu">
   <h2 id="edu">Education</h2>
 
+  <!-- M.S. IN DATA SCIENCE -->
   <article class="row">
     <div class="left"><h3>M.S. in Data Science</h3></div>
-    <div class="right"><p class="date">Expected Grad: <time datetime="2026-03">March 2026</time></p></div>
-  </article>
-  <article class="row">
-    <div class="left"><p class="degree-line"><em>University of California, San Diego</em></p></div>
-    <div class="right"><p class="place">La Jolla, CA</p></div>
+    <div class="right">
+      <p class="date"><time datetime="2024">2024</time> – <time datetime="2026">2026</time></p>
+    </div>
   </article>
   <article class="row">
     <div class="left">
-      <ul class="bullets">
-        <li>GPA 3.80 / 4.00</li>
-        <li>Coursework: Statistics, Linear Algebra, Data Visualization, NLP, Big Data</li>
-      </ul>
+      <p class="degree-line"><em>University of California, San Diego</em></p>
+      <p class="degree-detail">Graduating: March 2026 | University GPA: 3.80 /4.00</p>
     </div>
-    <div class="right"></div>
+    <div class="right">
+      <p class="place">La Jolla, CA</p>
+    </div>
   </article>
 
+  <!-- B.S. IN MANAGEMENT INFORMATION SYSTEMS -->
   <article class="row">
     <div class="left"><h3>B.S. in Management Information Systems</h3></div>
-    <div class="right"><p class="date"><time datetime="2024-05">May 2024</time></p></div>
-  </article>
-  <article class="row">
-    <div class="left"><p class="degree-line"><em>California State University, Sacramento</em></p></div>
-    <div class="right"><p class="place">Sacramento, CA</p></div>
+    <div class="right">
+      <p class="date"><time datetime="2022">2022</time> – <time datetime="2024">2024</time></p>
+    </div>
   </article>
   <article class="row">
     <div class="left">
-      <ul class="bullets">
-        <li>GPA 3.80 / 4.00 · Magna Cum Laude · Dean’s List</li>
-        <li>Coursework: Machine Learning, Data Mining, Advanced Analytics, Data Management</li>
-      </ul>
+      <p class="degree-line"><em>California State University, Sacramento</em></p>
+      <p class="degree-detail">University GPA: 3.80 /4.00 (Magna Cum Laude, Dean's List)</p>
     </div>
-    <div class="right"></div>
+    <div class="right">
+      <p class="place">Sacramento, CA</p>
+    </div>
   </article>
+
+  <!-- ASSOCIATE DEGREES -->
   <article class="row">
-    <div class="left"><p class="degree-line"><em>A.S. in Accounting</em></p></div>
-    <div class="right"><p class="date"><time datetime="2021-05">May 2021</time></p></div>
-  </article>
-  <article class="row">
-    <div class="left"><p class="degree-line"><em>A.S. in Business Administration</em></p></div>
-    <div class="right"></div>
+    <div class="left">
+      <h3>A.S. in Accounting | A.S. in Business Administration</h3>
+    </div>
+    <div class="right">
+      <p class="date"><time datetime="2020">2020</time> – <time datetime="2022">2022</time></p>
+    </div>
   </article>
 </section>
 
@@ -71,47 +71,44 @@
     <!-- PROJECTS -->
     <section aria-labelledby="proj">
       <h2 id="proj">Projects</h2>
+
       <article>
         <header class="proj-head">
-          <h3 class="title">Car Value Predictor <span class="muted">(Personal Project)</span></h3>
-          <p class="links"><a href="https://github.com/vve">Full Project</a>
-          </p>
+          <h3 class="title">Car Value Predictor (2024)</h3>
+          <p class="links"><span class="muted">Personal Project · </span><a href="https://github.com/vve">View Project</a></p>
         </header>
-        <p>End-to-end vehicle price prediction dashboard using scraped data from Cars.com.</p>
+        <p>Pricing model to support used-car valuation decisions by estimating market prices across 10 major manufacturers using live marketplace data.</p>
         <ul class="bullets">
-          <li>Built ML pipeline: scraped 84K+ listings, engineered features, analyzed depreciation trends.</li>
-          <li>Evaluated 4+ models (RF, XGBoost, CatBoost, LightGBM); final model: MAE $1.7K, R² 0.96.</li>
-          <li>Validated on new data collected 1 month later, maintained R² &gt; 0.95 despite market fluctuations.</li>
+          <li>Collected and standardized 84K+ vehicle listings via custom web scraper and automated pipeline for cleaning, outlier handling, and feature engineering.</li>
+          <li>Selected LightGBM after benchmarking regression approaches, achieving MAE $1.7K (6.3% of average price) with R² &gt; 0.96 across manufacturers.</li>
+          <li>Validated robustness on new data collected one month later, maintaining R² &gt; 0.95 despite market volatility.</li>
+          <li>Delivered interactive Dash dashboard with price distributions and SHAP-based explanations to support transparent pricing decisions.</li>
         </ul>
       </article>
 
       <article>
         <header class="proj-head">
-          <h3 class="title">NYC Yellow Taxi Fare Prediction <span class="muted">(Academic Project)</span></h3>
-          <p class="links"><a href="https://github.com/myfork">My Contributions</a> · 
-          <a href="https://github.com/full">Full Project</a>
-          </p>
+          <h3 class="title">Amazon Sports &amp; Outdoor Products Recommender System (2025)</h3>
+          <p class="links"><span class="muted">Academic Project · </span><a href="https://github.com/zmosDS/amazon_sports_recommender/tree/main">View Code</a></p>
         </header>
-        <p>Large-scale predictive modeling using Apache Spark and LightGBM on 150M+ NYC taxi trip records.</p>
+        <p>Hybrid recommendation system designed to surface relevant products from a sparse 4M+ Amazon review dataset.</p>
         <ul class="bullets">
-          <li>Analyzed 20GB+ trip data on SDSC supercomputer; engineered time/efficiency features, handled outliers.</li>
-          <li>Developed fare predictor (MAE $1.91, R² ≈ 0.94) and tip classifier (79% accuracy).</li>
-          <li>Achieved 36% RMSE reduction vs baseline regression; earned 3rd place in class competition.</li>
+          <li>Mitigated 99.998% sparsity by combining collaborative filtering (SVD) with content-based features (Ridge regression) to improve cold-start performance.</li>
+          <li>Benchmarked five recommendation strategies and optimized hybrid weighting (60% SVD, 40% Ridge) to balance personalization and coverage.</li>
+          <li>Achieved strong ranking quality (nDCG@10: 0.9981) with 31.5% error reduction over baseline methods.</li>
         </ul>
       </article>
 
       <article>
         <header class="proj-head">
-          <h3 class="title">Amazon Sports &amp; Outdoor Products Recommender System <span class="muted">(Academic Project)</span></h3>
-          <p class="links">
-            <a href="https://github.com/zmosDS/amazon_sports_recommender/tree/main">Full Project</a>
-          </p>
+          <h3 class="title">NYC Yellow Taxi Fare Prediction (2025)</h3>
+          <p class="links"><span class="muted">Group Project · </span><a href="https://github.com/myfork">My Contributions</a> | <a href="https://github.com/full">View Code</a></p>
         </header>
-        <p>Hybrid recommender system (SVD + Ridge) built from 4M+ reviews for top-10 recommendations.</p>
+        <p>Fare prediction model built from 150M+ NYC taxi records, earned 3rd place in class competition.</p>
         <ul class="bullets">
-          <li>Processed 4M+ reviews and metadata; engineered user/item features, handled extreme sparsity (99.998%).</li>
-          <li>Built weighted hybrid (0.6 SVD + 0.4 Ridge) achieving 31.5% RMSE improvement over baseline.</li>
-          <li>Achieved nDCG@10 of 0.9981 for top-10 rankings, demonstrating near-optimal quality.</li>
+          <li>Engineered time/efficiency features from 20GB+ trip data using Apache Spark and Dask.</li>
+          <li>Trained regressor achieving MAE $1.91 and R² 0.94, improving RMSE by 49% over baseline.</li>
+          <li>Scaled training with distributed computing (15 workers, 60 cores) and validated performance using residual analysis.</li>
         </ul>
       </article>
     </section>
@@ -119,9 +116,10 @@
     <!-- SKILLS -->
     <section aria-labelledby="skills">
       <h2 id="skills">Skills</h2>
-      <p><strong>Languages &amp; Tools:</strong> Python (Pandas, NumPy, Scikit-learn, Surprise, Plotly, Matplotlib, Seaborn), SQL (PostgreSQL, MySQL), D3.js, Tableau, Power BI, Git, JavaScript, Streamlit, Azure, AWS, Excel, Jupyter</p>
-      <p><strong>ML &amp; Analytics:</strong> Statistical Analysis, Recommender Systems, Regression, Classification, NLP, A/B Testing, Feature Engineering, Cross-Validation, Model Evaluation, Ranking Metrics (nDCG, Precision/Recall@K)</p>
-      <p><strong>Data Engineering:</strong> ETL, APIs, Spark, Dask, Data Pipelines, Large-Scale Data Processing</p>
+      <p><strong>Programming &amp; Libraries:</strong> Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn), SQL, JavaScript (D3.js)</p>
+      <p><strong>ML &amp; Analytics:</strong> Regression, Classification, Recommendation Systems, Hyperparameter Tuning, A/B Testing</p>
+      <p><strong>Data Engineering:</strong> ETL Pipelines, Apache Spark, Dask, Data Cleaning, APIs</p>
+      <p><strong>Tools &amp; Platforms:</strong> Git, Tableau, Excel, Azure</p>
     </section>
 
     <!-- WORK EXPERIENCE -->
@@ -139,10 +137,9 @@
       <article class="row">
         <div class="left">
           <ul class="bullets">
-            <li>Led team of 7 managing distribution of 50K+ cases/day for Coors, Modelo, and Corona brands</li>
-            <li>Spearheaded EasyOps implementation, partnering with vendors to modernize warehouse workflows</li>
-            <li>Improved inventory accuracy 12% by analyzing operational data &amp; implementing improvements</li>
-            <li>Led warehouse expansion: designed floor layout from planning through implementation</li>
+            <li>Managed 7-person team distributing 50K+ cases/day for Coors, Modelo, and Corona brands.</li>
+            <li>Spearheaded new Warehouse Management Software (VIP EasyOps) implementation, partnering with vendors to modernize workflows.</li>
+            <li>Improved inventory accuracy 12% through better labeling, FIFO procedures, and discrepancy investigation.</li>
           </ul>
         </div>
         <div class="right"></div>

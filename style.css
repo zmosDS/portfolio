@@ -312,6 +312,10 @@ h2, h3, h4, h5, h6 {
   font-style: italic; 
 }
 
+.degree-detail {
+  margin: 0;
+}
+
 .cv .row .place,
 .cv .row .date { 
   margin: 0; 
@@ -345,9 +349,7 @@ h2, h3, h4, h5, h6 {
 }
 
 .cv section[aria-labelledby="proj"] .bullets {
-  margin: 0.15rem 0 0.4rem;
-  padding-left: 1.1rem;    /* reduce indent of bullet points */
-  margin-left: 0;
+  margin: 0.35rem 0 0.4rem;
 }
 
 .cv section[aria-labelledby="proj"] .bullets li {
