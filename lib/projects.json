@@ -18,7 +18,7 @@
 		"title": "Boston Bike Traffic",
 		"year": "2025",
 		"image": "images/boston_bike_traffic.png",
-		"description": "Interactive map of Boston cycling traffic built with D3 and Mapbox, highlighting hourly patterns and location-based differences across the city.",
+		"description": "Interactive map of Boston cycling traffic built with D3.js and Mapbox, highlighting hourly patterns and location-based differences across the city.",
 		"live": "https://zmosds.github.io/boston_bike_traffic/",
 		"code": "https://github.com/zmosDS/boston_bike_traffic"
 	},
