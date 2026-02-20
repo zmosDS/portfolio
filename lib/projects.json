@@ -3,7 +3,7 @@
 		"title": "Aspect-Based Sentiment Analysis on 22M Google Reviews",
 		"year": "2026",
 		"image": "images/absa_comparison.png",
-		"description": "Built end-to-end pipelines for extracting aspect-sentiment pairs from Google Maps reviews using weak supervision. Compared TF-IDF baseline, fine-tuned RoBERTa, and zero-shot LLM approaches, achieving 0.84 weighted F1 on multi-label classification (PyTorch, HuggingFace, sklearn).",
+		"description": "End-to-end NLP system extracting aspect-sentiment pairs from Google Maps reviews using weak supervision. Built data pipelines, trained multiple models (TF-IDF, fine-tuned RoBERTa, zero-shot LLM), achieving 0.84 weighted F1 (PyTorch, HuggingFace, sklearn).",
 		"code": "https://github.com/zmosDS/google_review_insights"
 	},
 	{
