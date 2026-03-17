@@ -141,11 +141,21 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       <div class="project-info">
         <p>${project.description}</p>
 
-        ${project.live || project.code ? `
+        ${project.live || project.code || project.paper ? `
           <div class="project-links">
-            ${project.live ? `<a href="${project.live}" target="_blank" rel="noopener noreferrer">View Project</a>` : ''}
-            ${project.live && project.code ? ' · ' : ''}
-            ${project.code ? `<a href="${project.code}" target="_blank" rel="noopener noreferrer">View Code</a>` : ''}
+            ${
+              [
+                project.paper
+                  ? `<a href="${project.paper}" target="_blank" rel="noopener noreferrer">View Paper</a>`
+                  : '',
+                project.live
+                  ? `<a href="${project.live}" target="_blank" rel="noopener noreferrer">View Project</a>`
+                  : '',
+                project.code
+                  ? `<a href="${project.code}" target="_blank" rel="noopener noreferrer">View Code</a>`
+                  : '',
+              ].filter(Boolean).join(' · ')
+            }
           </div>
         ` : ''}
 
