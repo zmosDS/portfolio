@@ -6,6 +6,21 @@
 		"description": "End-to-end NLP system extracting aspect-sentiment pairs from Google Maps reviews using weak supervision. Built data pipelines, trained multiple models (TF-IDF, fine-tuned RoBERTa, zero-shot LLM), achieving 0.84 weighted F1 (PyTorch, HuggingFace, sklearn).",
 		"code": "https://github.com/zmosDS/google_review_insights"
 	},
+		{
+		"title": "Predicting Major US Power Outage Severity",
+		"year": "2026",
+		"image": "images/power_outage_confusion_matrix.png",
+		"description": "Binary classifier predicting whether a U.S. power outage will become severe (12+ hours) using LightGBM and engineered features available at outage onset.",
+		"live": "https://zmosds.github.io/predict_severe_power_outages/",
+		"code": "https://github.com/zmosDS/predict_severe_power_outages"
+	},
+	{
+		"title": "Recommendation System for Amazon Sports & Outdoor Products",
+		"year": "2025",
+		"image": "images/amazon_recommender.png",
+		"description": "End-to-end recommender system built from 4M+ Amazon Sports & Outdoors reviews, featuring large-scale preprocessing, feature engineering, and hybrid modeling (SVD + Ridge) to predict ratings and generate personalized top-10 product recommendations.",
+		"code": "https://github.com/zmosDS/amazon_sports_recommender"
+	},
 	{
 		"title": "The Hidden Shape of Recessions: Industry Declines & Recoveries 1995–2024",
 		"year": "2025",
@@ -13,13 +28,6 @@
 		"description": "Interactive explorable explanation comparing job losses and recovery patterns across industries during the 2001, 2008, and 2020 U.S. recessions using D3.js.",
 		"live": "https://zmosds.github.io/recession_impact_analysis/",
 		"code": "https://github.com/zmosDS/recession_impact_analysis"
-	},
-		{
-		"title": "Recommendation System for Amazon Sports & Outdoor Products",
-		"year": "2025",
-		"image": "images/amazon_recommender.png",
-		"description": "End-to-end recommender system built from 4M+ Amazon Sports & Outdoors reviews, featuring large-scale preprocessing, feature engineering, and hybrid modeling (SVD + Ridge) to predict ratings and generate personalized top-10 product recommendations.",
-		"code": "https://github.com/zmosDS/amazon_sports_recommender"
 	},
 	{
 		"title": "Boston Bike Traffic",
