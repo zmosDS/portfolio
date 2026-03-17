@@ -32,7 +32,7 @@
   <article class="row">
     <div class="left">
       <p class="degree-line"><em>University of California, San Diego</em></p>
-      <p class="degree-detail">Graduating: March 2026 | University GPA: 3.80 /4.00</p>
+      <p class="degree-detail">University GPA: 3.80 /4.00</p>
     </div>
     <div class="right">
       <p class="place">La Jolla, CA</p>
@@ -74,35 +74,34 @@
 
       <article>
         <header class="proj-head">
-          <h3 class="title">Car Value Predictor (2024)</h3>
-          <p class="links"><span class="muted">Personal Project · </span><a href="https://github.com/vve">View Project</a></p>
+          <h3 class="title">Aspect-Based Sentiment Analysis of Google Map Reviews (2026)</h3>
+          <p class="links"><span class="muted">Capstone Project · </span><a href="https://zmosds.github.io/google_review_insights/docs/paper.pdf">Paper</a> | <a href="https://github.com/zmosDS/google_review_insights">GitHub</a></p>
         </header>
-        <p>Pricing model to support used-car valuation decisions by estimating market prices across 10 major manufacturers using live marketplace data.</p>
+        <p>Compared classical NLP, transformer, and LLM approaches for aspect-level sentiment extraction across 22M+ real-world Google reviews.</p>
         <ul class="bullets">
-          <li>Collected and standardized 84K+ vehicle listings via custom web scraper and automated pipeline for cleaning, outlier handling, and feature engineering.</li>
-          <li>Selected LightGBM after benchmarking regression approaches, achieving MAE $1.7K (6.3% of average price) with R² &gt; 0.96 across manufacturers.</li>
-          <li>Validated robustness on new data collected one month later, maintaining R² &gt; 0.95 despite market volatility.</li>
-          <li>Delivered interactive Dash dashboard with price distributions and SHAP-based explanations to support transparent pricing decisions.</li>
+          <li>Engineered 14 multi-label targets via weak supervision using star ratings as proxy labels (7 aspects x 2 sentiments) across 70.6M raw California reviews (25GB+).</li>
+          <li>Benchmarked TF-IDF + Logistic Regression baseline with negation handling and class weighting against fine-tuned RoBERTa and GPT-4.1-mini zero/few-shot prompting.</li>
+          <li>Found GPT-4.1-mini zero-shot outperformed all trained models on manually labeled ground truth (Weighted F1 0.757), while RoBERTa led on weakly labeled test set (Weighted F1 0.930), revealing noise inherent in weak supervision.</li>
         </ul>
       </article>
 
       <article>
         <header class="proj-head">
           <h3 class="title">Amazon Sports &amp; Outdoor Products Recommender System (2025)</h3>
-          <p class="links"><span class="muted">Academic Project · </span><a href="https://github.com/zmosDS/amazon_sports_recommender/tree/main">View Code</a></p>
+          <p class="links"><span class="muted">Academic Project · </span><a href="https://github.com/zmosDS/amazon_sports_recommender/tree/main">GitHub</a></p>
         </header>
         <p>Hybrid recommendation system designed to surface relevant products from a sparse 4M+ Amazon review dataset.</p>
         <ul class="bullets">
           <li>Mitigated 99.998% sparsity by combining collaborative filtering (SVD) with content-based features (Ridge regression) to improve cold-start performance.</li>
           <li>Benchmarked five recommendation strategies and optimized hybrid weighting (60% SVD, 40% Ridge) to balance personalization and coverage.</li>
-          <li>Achieved strong ranking quality (nDCG@10: 0.9981) with 31.5% error reduction over baseline methods.</li>
+          <li>Achieved strong ranking quality (nDCG@10 0.9981) with 31.5% RMSE reduction over baseline.</li>
         </ul>
       </article>
 
       <article>
         <header class="proj-head">
           <h3 class="title">NYC Yellow Taxi Fare Prediction (2025)</h3>
-          <p class="links"><span class="muted">Group Project · </span><a href="https://github.com/myfork">My Contributions</a> | <a href="https://github.com/full">View Code</a></p>
+          <p class="links"><span class="muted">Group Project · </span><a href="https://github.com/zmosDS/NYC_taxi_fare_prediction">My Contributions</a> | <a href="https://github.com/rvasappa-ucsd/nyc-taxi-eda">GitHub</a></p>
         </header>
         <p>Fare prediction model built from 150M+ NYC taxi records, earned 3rd place in class competition.</p>
         <ul class="bullets">
@@ -116,35 +115,12 @@
     <!-- SKILLS -->
     <section aria-labelledby="skills">
       <h2 id="skills">Skills</h2>
-      <p><strong>Programming &amp; Libraries:</strong> Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn), SQL, JavaScript (D3.js)</p>
-      <p><strong>ML &amp; Analytics:</strong> Regression, Classification, Recommendation Systems, Hyperparameter Tuning, A/B Testing</p>
-      <p><strong>Data Engineering:</strong> ETL Pipelines, Apache Spark, Dask, Data Cleaning, APIs</p>
-      <p><strong>Tools &amp; Platforms:</strong> Git, Tableau, Excel, Azure</p>
+      <p><strong>Programming &amp; Libraries:</strong> Python (Pandas, NumPy), SQL, JavaScript (D3.js)</p>
+      <p><strong>ML &amp; NLP:</strong> Scikit-learn, Transformers (HuggingFace), PyTorch, Regression, Classification, Recommendation Systems, Hyperparameter Tuning</p>
+      <p><strong>Data Engineering:</strong> ETL Pipelines, Apache Spark, Dask, Large-scale Data Processing, APIs</p>
+      <p><strong>Tools &amp; Platforms:</strong> Git, Azure, Tableau, Excel</p>
     </section>
 
-    <!-- WORK EXPERIENCE -->
-    <section aria-labelledby="work">
-      <h2 id="work">Experience</h2>
-
-      <article class="row">
-        <div class="left"><h3>Lead AM Warehouse Associate</h3></div>
-        <div class="right"><p class="date"><time datetime="2014">2014</time> – <time datetime="2020">2020</time></p></div>
-      </article>
-      <article class="row">
-        <div class="left"><p class="degree-line"><em>DBI Beverage</em></p></div>
-        <div class="right"><p class="place">Stockton, CA</p></div>
-      </article>
-      <article class="row">
-        <div class="left">
-          <ul class="bullets">
-            <li>Managed 7-person team distributing 50K+ cases/day for Coors, Modelo, and Corona brands.</li>
-            <li>Spearheaded new Warehouse Management Software (VIP EasyOps) implementation, partnering with vendors to modernize workflows.</li>
-            <li>Improved inventory accuracy 12% through better labeling, FIFO procedures, and discrepancy investigation.</li>
-          </ul>
-        </div>
-        <div class="right"></div>
-      </article>
-    </section>
   </main>
 
     <!-- download link -->
