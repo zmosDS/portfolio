@@ -18,6 +18,12 @@
       </div>
     </header>
 
+    <!-- SUMMARY -->
+    <section aria-labelledby="summary">
+      <h2 id="summary">Summary</h2>
+      <p>Data scientist focused on applied machine learning, NLP, and recommender systems, with experience building and evaluating models on multimillion-record datasets and developing scalable data processing pipelines.</p>
+    </section>
+
     <!-- EDUCATION -->
 <section aria-labelledby="edu">
   <h2 id="edu">Education</h2>
@@ -26,13 +32,13 @@
   <article class="row">
     <div class="left"><h3>M.S. in Data Science</h3></div>
     <div class="right">
-      <p class="date"><time datetime="2024">2024</time> – <time datetime="2026">2026</time></p>
+      <p class="date"><time datetime="2026">2026</time></p>
     </div>
   </article>
   <article class="row">
     <div class="left">
       <p class="degree-line"><em>University of California, San Diego</em></p>
-      <p class="degree-detail">University GPA: 3.80 /4.00</p>
+      <p class="degree-detail">University GPA: 3.81</p>
     </div>
     <div class="right">
       <p class="place">La Jolla, CA</p>
@@ -43,13 +49,13 @@
   <article class="row">
     <div class="left"><h3>B.S. in Management Information Systems</h3></div>
     <div class="right">
-      <p class="date"><time datetime="2022">2022</time> – <time datetime="2024">2024</time></p>
+      <p class="date"><time datetime="2024">2024</time></p>
     </div>
   </article>
   <article class="row">
     <div class="left">
       <p class="degree-line"><em>California State University, Sacramento</em></p>
-      <p class="degree-detail">University GPA: 3.80 /4.00 (Magna Cum Laude, Dean's List)</p>
+      <p class="degree-detail">University GPA: 3.80 (Magna Cum Laude)</p>
     </div>
     <div class="right">
       <p class="place">Sacramento, CA</p>
@@ -62,7 +68,6 @@
       <h3>A.S. in Accounting | A.S. in Business Administration</h3>
     </div>
     <div class="right">
-      <p class="date"><time datetime="2020">2020</time> – <time datetime="2022">2022</time></p>
     </div>
   </article>
 </section>
@@ -74,23 +79,23 @@
 
       <article>
         <header class="proj-head">
-          <h3 class="title">Aspect-Based Sentiment Analysis of Google Map Reviews (2026)</h3>
+          <h3 class="title">Aspect-Based Sentiment Analysis of Google Reviews (2026)</h3>
           <p class="links"><span class="muted">Capstone Project · </span><a href="https://zmosds.github.io/google_review_insights/docs/paper.pdf">Paper</a> | <a href="https://github.com/zmosDS/google_review_insights">GitHub</a></p>
         </header>
         <p>Compared classical NLP, transformer, and LLM approaches for aspect-level sentiment extraction across 22M+ real-world Google reviews.</p>
         <ul class="bullets">
-          <li>Engineered 14 multi-label targets via weak supervision using star ratings as proxy labels (7 aspects x 2 sentiments) across 70.6M raw California reviews (25GB+).</li>
-          <li>Benchmarked TF-IDF + Logistic Regression baseline with negation handling and class weighting against fine-tuned RoBERTa and GPT-4.1-mini zero/few-shot prompting.</li>
-          <li>Found GPT-4.1-mini zero-shot outperformed all trained models on manually labeled ground truth (Weighted F1 0.757), while RoBERTa led on weakly labeled test set (Weighted F1 0.930), revealing noise inherent in weak supervision.</li>
+          <li>Engineered 14 multi-label targets using weak supervision with star ratings as proxy labels across 70 million California reviews (25GB+).</li>
+          <li>Benchmarked TF-IDF + Logistic Regression, fine-tuned RoBERTa, and GPT-4.1-mini zero/few-shot prompting for aspect-level sentiment classification.</li>
+          <li>GPT-4.1-mini zero-shot prompting produced strongest ground-truth performance (Weighted F1: 0.757), RoBERTa performed best on weakly labeled data (Weighted F1: 0.930), highlighting label-noise limitations in weak supervision.</li>
         </ul>
       </article>
 
       <article>
         <header class="proj-head">
-          <h3 class="title">Amazon Sports &amp; Outdoor Products Recommender System (2025)</h3>
+          <h3 class="title">Amazon Sports Products Recommender System (2025)</h3>
           <p class="links"><span class="muted">Academic Project · </span><a href="https://github.com/zmosDS/amazon_sports_recommender/tree/main">GitHub</a></p>
         </header>
-        <p>Hybrid recommendation system designed to surface relevant products from a sparse 4M+ Amazon review dataset.</p>
+        <p>Hybrid recommender system designed to surface relevant products from a sparse 4M+ Amazon review dataset.</p>
         <ul class="bullets">
           <li>Mitigated 99.998% sparsity by combining collaborative filtering (SVD) with content-based features (Ridge regression) to improve cold-start performance.</li>
           <li>Benchmarked five recommendation strategies and optimized hybrid weighting (60% SVD, 40% Ridge) to balance personalization and coverage.</li>
@@ -115,10 +120,35 @@
     <!-- SKILLS -->
     <section aria-labelledby="skills">
       <h2 id="skills">Skills</h2>
-      <p><strong>Programming &amp; Libraries:</strong> Python (Pandas, NumPy), SQL, JavaScript (D3.js)</p>
-      <p><strong>ML &amp; NLP:</strong> Scikit-learn, Transformers (HuggingFace), PyTorch, Regression, Classification, Recommendation Systems, Hyperparameter Tuning</p>
-      <p><strong>Data Engineering:</strong> ETL Pipelines, Apache Spark, Dask, Large-scale Data Processing, APIs</p>
-      <p><strong>Tools &amp; Platforms:</strong> Git, Azure, Tableau, Excel</p>
+      <p><strong>Programming:</strong> Python, SQL, JavaScript (D3.js)</p>
+      <p><strong>Machine Learning:</strong> Scikit-learn, PyTorch, Hugging Face Transformers, XGBoost, LightGBM, Recommendation Systems, NLP, Hyperparameter Tuning</p>
+      <p><strong>Data Processing:</strong> Pandas, NumPy, Apache Spark, ETL Pipelines, Large-scale Data Processing</p>
+      <p><strong>Tools:</strong> Git, Tableau</p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section aria-labelledby="experience">
+      <h2 id="experience">Experience</h2>
+
+      <article class="row">
+        <div class="left"><h3>DBI Beverage</h3></div>
+        <div class="right">
+          <p class="date"><time datetime="2014">2014</time> - <time datetime="2020">2020</time></p>
+        </div>
+      </article>
+      <article class="row">
+        <div class="left">
+          <p class="degree-line"><em>Operations Team Lead</em></p>
+        </div>
+        <div class="right">
+          <p class="place">Stockton, CA</p>
+        </div>
+      </article>
+      <ul class="bullets">
+        <li>Managed 7-person team distributing 50K+ cases/day for Coors, Modelo, and Corona brands.</li>
+        <li>Spearheaded new Warehouse Management Software (VIP EasyOps) implementation, modernized workflows.</li>
+        <li>Improved inventory accuracy 12% through better labeling, FIFO procedures, and discrepancy investigation.</li>
+      </ul>
     </section>
 
   </main>
