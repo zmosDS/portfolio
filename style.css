@@ -95,6 +95,10 @@ input, textarea, button {
   max-width: 600px;
 }
 
+.intro-text h3 {
+  text-wrap: wrap;
+}
+
 /* =========================================
    CONTACT FORM
    ========================================= */
