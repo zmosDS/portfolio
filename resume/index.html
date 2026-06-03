@@ -82,11 +82,11 @@
           <h3 class="title">Aspect-Based Sentiment Analysis of Google Reviews (2026)</h3>
           <p class="links"><span class="muted">Capstone Project · </span><a href="https://zmosds.github.io/google_review_insights/docs/paper.pdf">Paper</a> | <a href="https://github.com/zmosDS/google_review_insights">GitHub</a></p>
         </header>
-        <p>Compared classical NLP, transformer, and LLM approaches for aspect-level sentiment extraction across 22M+ real-world Google reviews.</p>
+        <p>Businesses receive thousands of reviews but lack tools to extract actionable, aspect-level feedback at scale. This project built and benchmarked an end-to-end NLP pipeline to solve that.</p>
         <ul class="bullets">
-          <li>Engineered 14 multi-label targets using weak supervision with star ratings as proxy labels across 70 million California reviews (25GB+).</li>
-          <li>Benchmarked TF-IDF + Logistic Regression, fine-tuned RoBERTa, and GPT-4.1-mini zero/few-shot prompting for aspect-level sentiment classification.</li>
-          <li>GPT-4.1-mini zero-shot prompting produced strongest ground-truth performance (Weighted F1: 0.757), RoBERTa performed best on weakly labeled data (Weighted F1: 0.930), highlighting label-noise limitations in weak supervision.</li>
+          <li>Processed 70M+ reviews (25GB+) and engineered a weak supervision pipeline to generate 14 aspect-sentiment labels at scale.</li>
+          <li>Benchmarked TF-IDF, fine-tuned RoBERTa, and a zero-shot LLM for aspect-level sentiment classification.</li>
+          <li>Zero-shot LLM outperformed all trained models on human-labeled ground truth (F1 0.757 vs. 0.605), exposing weak supervision's performance limits.</li>
         </ul>
       </article>
 
@@ -95,11 +95,11 @@
           <h3 class="title">Amazon Sports Products Recommender System (2025)</h3>
           <p class="links"><span class="muted">Academic Project · </span><a href="https://github.com/zmosDS/amazon_sports_recommender/tree/main">GitHub</a></p>
         </header>
-        <p>Hybrid recommender system designed to surface relevant products from a sparse 4M+ Amazon review dataset.</p>
+        <p>E-commerce platforms lose sales when they can't surface the right products to the right users. This project built a recommendation system across 4M+ Amazon reviews to deliver personalized product rankings.</p>
         <ul class="bullets">
-          <li>Mitigated 99.998% sparsity by combining collaborative filtering (SVD) with content-based features (Ridge regression) to improve cold-start performance.</li>
-          <li>Benchmarked five recommendation strategies and optimized hybrid weighting (60% SVD, 40% Ridge) to balance personalization and coverage.</li>
-          <li>Achieved strong ranking quality (nDCG@10 0.9981) with 31.5% RMSE reduction over baseline.</li>
+          <li>Mitigated 99.998% data sparsity by engineering user and item behavioral features, then benchmarking five approaches from global baseline to SVD matrix factorization.</li>
+          <li>Combined collaborative filtering (SVD) with content-based Ridge regression to balance personalization and cold-start coverage.</li>
+          <li>Hybrid model (0.6 SVD + 0.4 Ridge) reduced RMSE by 31.5% over baseline, outperforming all benchmarked approaches.</li>
         </ul>
       </article>
 
@@ -108,11 +108,10 @@
           <h3 class="title">NYC Yellow Taxi Fare Prediction (2025)</h3>
           <p class="links"><span class="muted">Group Project · </span><a href="https://github.com/zmosDS/NYC_taxi_fare_prediction">My Contributions</a> | <a href="https://github.com/rvasappa-ucsd/nyc-taxi-eda">GitHub</a></p>
         </header>
-        <p>Fare prediction model built from 150M+ NYC taxi records, earned 3rd place in class competition.</p>
+        <p>Accurate fare estimation is critical for ride-hailing platforms to maintain rider trust and operational efficiency. This project built and validated a fare prediction model across 150M+ NYC taxi records, earning 3rd place in a class competition.</p>
         <ul class="bullets">
-          <li>Engineered time/efficiency features from 20GB+ trip data using Apache Spark and Dask.</li>
-          <li>Trained regressor achieving MAE $1.91 and R² 0.94, improving RMSE by 49% over baseline.</li>
-          <li>Scaled training with distributed computing (15 workers, 60 cores) and validated performance using residual analysis.</li>
+          <li>Engineered trip duration, distance, and toll features using Spark, identifying trip duration as a key fare driver despite low correlation.</li>
+          <li>Trained a distributed LightGBM regressor, reducing RMSE by 49% over baseline, achieving R² 0.94 with near-zero train/test gap confirming strong generalization.</li>
         </ul>
       </article>
     </section>
