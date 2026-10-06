@@ -1,5 +1,12 @@
 [
 	{
+		"title": "Olist E-Commerce Analytics Dashboard",
+		"year": "2026",
+		"image": "images/revenue_sales.png",
+		"description": "Built an e-commerce reporting solution to help monitor sales performance, delivery issues, and customer behavior across nearly 100K orders. Used PostgreSQL and SQL for reporting views, then Power BI and DAX for modeling, KPIs, and dashboarding.",
+		"code": "https://github.com/zmosDS/E_Commerce_Dashboard"
+	},
+	{
 		"title": "Aspect-Based Sentiment Analysis on 22M Google Reviews",
 		"year": "2026",
 		"image": "images/absa_comparison.png",
