@@ -3,14 +3,14 @@
 		"title": "Olist E-Commerce Analytics Dashboard",
 		"year": "2026",
 		"image": "images/revenue_sales.png",
-		"description": "Built an e-commerce reporting solution to help monitor sales performance, delivery issues, and customer behavior across nearly 100K orders. Used PostgreSQL and SQL for reporting views, then Power BI and DAX for modeling, KPIs, and dashboarding.",
+		"description": "E-commerce reporting solution to monitor sales performance, delivery issues, and customer behavior across nearly 100K orders. Used PostgreSQL and SQL for reporting views, then Power BI and DAX for modeling, KPIs, and dashboarding.",
 		"code": "https://github.com/zmosDS/E_Commerce_Dashboard"
 	},
 	{
 		"title": "Aspect-Based Sentiment Analysis on 22M Google Reviews",
 		"year": "2026",
 		"image": "images/absa_comparison.png",
-		"description": "End-to-end NLP system extracting aspect-sentiment pairs from Google Maps reviews using weak supervision. Built data pipelines and trained multiple models (TF-IDF, fine-tuned RoBERTa, GPT-4.1-mini zero-shot), validated on manually labeled ground truth.",
+		"description": "NLP system for identifying which aspects of a business drive positive and negative customer sentiment. Built NLP pipelines using weak supervision and compared TF-IDF, fine-tuned RoBERTa, and GPT-4.1-mini against manually labeled ground truth.",
 		"paper": "https://zmosds.github.io/google_review_insights/docs/paper.pdf",
 		"code": "https://github.com/zmosDS/google_review_insights"
 	},
@@ -18,7 +18,7 @@
 		"title": "Predicting Major US Power Outage Severity",
 		"year": "2026",
 		"image": "images/power_outage_confusion_matrix.png",
-		"description": "Binary classifier predicting whether a U.S. power outage will become severe (12+ hours) using LightGBM, feature engineering, and permutation-based missingness analysis on historical outage, climate, and grid data.",
+		"description": "Predictive model for classifying outages likely to become severe and supporting earlier prioritization of high-risk events. Used LightGBM with engineered outage, climate, geographic, and grid features, along with missingness analysis and statistical testing.",
 		"live": "https://zmosds.github.io/predict_severe_power_outages/",
 		"code": "https://github.com/zmosDS/predict_severe_power_outages"
 	},
@@ -26,7 +26,7 @@
 		"title": "Recommendation System for Amazon Sports & Outdoor Products",
 		"year": "2025",
 		"image": "images/amazon_recommender.png",
-		"description": "Hybrid recommender system built from 4M+ Amazon Sports & Outdoors reviews using large-scale preprocessing, feature engineering, and SVD + Ridge modeling to predict ratings and generate personalized top-10 product recommendations.",
+		"description": "Personalized recommendation system for ranking products in a highly sparse customer-review environment. Engineered user- and item-level features and compared SVD, Ridge, and hybrid approaches across 4M+ Amazon reviews to generate top-10 recommendations.",
 		"code": "https://github.com/zmosDS/amazon_sports_recommender"
 	},
 	{
@@ -73,7 +73,7 @@
 		"title": "NYC Yellow Taxi Fare Prediction",
 		"year": "2025",
 		"image": "images/nyc_taxi_fare.png",
-		"description": "Large-scale predictive modeling project using Apache Spark and LightGBM to estimate taxi fares from 150M+ NYC ride records.",
+		"description": "Fare prediction system for estimating NYC taxi prices from trip characteristics such as distance, duration, tolls, and time of day. Processed 150M+ rides with Apache Spark and trained LightGBM on engineered trip features.",
 		"live": "https://github.com/zmosDS/NYC_taxi_fare_prediction",
     	"code": "https://github.com/zmosDS/NYC_taxi_fare_prediction/blob/main/model_1_final.ipynb"
 	},
@@ -88,7 +88,7 @@
 		"title": "Car Value Predictor",
 		"year": "2024",
 		"image": "images/car_value_predictor.png",
-		"description": "Machine learning model and dashboard that estimates car prices from user inputs, built end-to-end from web-scraped vehicle listings.",
+		"description": "Vehicle pricing tool for estimating market value from make, model, year, mileage, trim, and other listing attributes. Scraped vehicle listings and compared XGBoost, LightGBM, and CatBoost before deploying the final model in an interactive dashboard.",
     	"code": "https://github.com/zmosDS/car_value_predictor"
 	}
 ]
