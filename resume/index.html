@@ -14,64 +14,15 @@
     <header class="cv-header">
       <h1>Zack Mosley</h1>
       <div class="links">
-        <a href="https://www.linkedin.com/in/zmosmis" target="_blank">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/zmos/" target="_blank">LinkedIn</a>
       </div>
     </header>
 
     <!-- SUMMARY -->
     <section aria-labelledby="summary">
       <h2 id="summary">Summary</h2>
-      <p>Data scientist focused on applied machine learning, NLP, and recommender systems, with experience building and evaluating models on multimillion-record datasets and developing scalable data processing pipelines.</p>
+      <p>Data scientist focused on applied machine learning and predictive modeling. My work has centered on model selection, tuning, evaluation, and building scalable data workflows.</p>
     </section>
-
-    <!-- EDUCATION -->
-<section aria-labelledby="edu">
-  <h2 id="edu">Education</h2>
-
-  <!-- M.S. IN DATA SCIENCE -->
-  <article class="row">
-    <div class="left"><h3>M.S. in Data Science</h3></div>
-    <div class="right">
-      <p class="date"><time datetime="2026">2026</time></p>
-    </div>
-  </article>
-  <article class="row">
-    <div class="left">
-      <p class="degree-line"><em>University of California, San Diego</em></p>
-      <p class="degree-detail">University GPA: 3.81</p>
-    </div>
-    <div class="right">
-      <p class="place">La Jolla, CA</p>
-    </div>
-  </article>
-
-  <!-- B.S. IN MANAGEMENT INFORMATION SYSTEMS -->
-  <article class="row">
-    <div class="left"><h3>B.S. in Management Information Systems</h3></div>
-    <div class="right">
-      <p class="date"><time datetime="2024">2024</time></p>
-    </div>
-  </article>
-  <article class="row">
-    <div class="left">
-      <p class="degree-line"><em>California State University, Sacramento</em></p>
-      <p class="degree-detail">University GPA: 3.80 (Magna Cum Laude)</p>
-    </div>
-    <div class="right">
-      <p class="place">Sacramento, CA</p>
-    </div>
-  </article>
-
-  <!-- ASSOCIATE DEGREES -->
-  <article class="row">
-    <div class="left">
-      <h3>A.S. in Accounting | A.S. in Business Administration</h3>
-    </div>
-    <div class="right">
-    </div>
-  </article>
-</section>
-
 
     <!-- PROJECTS -->
     <section aria-labelledby="proj">
@@ -84,45 +35,84 @@
         </header>
         <p>Businesses receive thousands of reviews but lack tools to extract actionable, aspect-level feedback at scale. This project built and benchmarked an end-to-end NLP pipeline to solve that.</p>
         <ul class="bullets">
-          <li>Processed 70M+ reviews (25GB+) and engineered a weak supervision pipeline to generate 14 aspect-sentiment labels at scale.</li>
-          <li>Benchmarked TF-IDF, fine-tuned RoBERTa, and a zero-shot LLM for aspect-level sentiment classification.</li>
-          <li>Zero-shot LLM outperformed all trained models on human-labeled ground truth (F1 0.757 vs. 0.605), exposing weak supervision's performance limits.</li>
+          <li>Processed 70M+ raw reviews (25GB+) and engineered a weak supervision pipeline to generate 14 aspect-sentiment labels at scale</li>
+          <li>Benchmarked TF-IDF, fine-tuned RoBERTa, and a zero-shot LLM for aspect-level sentiment classification</li>
+          <li>Zero-shot LLM outperformed all trained models on human-labeled ground truth (F1 0.757 vs. 0.605), exposing weak supervision's performance limits</li>
         </ul>
       </article>
 
       <article>
         <header class="proj-head">
           <h3 class="title">Amazon Sports Products Recommender System (2025)</h3>
-          <p class="links"><span class="muted">Academic Project · </span><a href="https://github.com/zmosDS/amazon_sports_recommender/tree/main">GitHub</a></p>
+          <p class="links"><span class="muted">Graduate Project · </span><a href="https://github.com/zmosDS/amazon_sports_recommender">GitHub</a></p>
         </header>
         <p>E-commerce platforms lose sales when they can't surface the right products to the right users. This project built a recommendation system across 4M+ Amazon reviews to deliver personalized product rankings.</p>
         <ul class="bullets">
-          <li>Mitigated 99.998% data sparsity by engineering user and item behavioral features, then benchmarking five approaches from global baseline to SVD matrix factorization.</li>
-          <li>Combined collaborative filtering (SVD) with content-based Ridge regression to balance personalization and cold-start coverage.</li>
-          <li>Hybrid model (0.6 SVD + 0.4 Ridge) reduced RMSE by 31.5% over baseline, outperforming all benchmarked approaches.</li>
+          <li>Mitigated 99.998% data sparsity by engineering user and item behavioral features, then benchmarking five approaches from global baseline to SVD matrix factorization</li>
+          <li>Combined collaborative filtering (SVD) with Ridge regression to balance personalization and cold-start coverage</li>
+          <li>Hybrid model (0.6 SVD + 0.4 Ridge) reduced RMSE by 31.5% over baseline, outperforming benchmarked approaches</li>
         </ul>
       </article>
 
       <article>
         <header class="proj-head">
           <h3 class="title">NYC Yellow Taxi Fare Prediction (2025)</h3>
-          <p class="links"><span class="muted">Group Project · </span><a href="https://github.com/zmosDS/NYC_taxi_fare_prediction">My Contributions</a> | <a href="https://github.com/rvasappa-ucsd/nyc-taxi-eda">GitHub</a></p>
+          <p class="links"><span class="muted">Graduate Project · </span><a href="https://github.com/zmosDS/NYC_taxi_fare_prediction">My Contributions</a> | <a href="https://github.com/rvasappa-ucsd/nyc-taxi-eda">GitHub</a></p>
         </header>
         <p>Accurate fare estimation is critical for ride-hailing platforms to maintain rider trust and operational efficiency. This project built and validated a fare prediction model across 150M+ NYC taxi records, earning 3rd place in a class competition.</p>
         <ul class="bullets">
-          <li>Engineered trip duration, distance, and toll features using Spark, identifying trip duration as a key fare driver despite low correlation.</li>
-          <li>Trained a distributed LightGBM regressor, reducing RMSE by 49% over baseline, achieving R² 0.94 with near-zero train/test gap confirming strong generalization.</li>
+          <li>Engineered trip duration, distance, and toll features using Spark, identifying trip duration as a key fare driver despite low correlation</li>
+          <li>Trained a distributed LightGBM regressor, reducing RMSE by 49% over baseline, achieving R² 0.94 with near-zero train/test gap confirming strong generalization</li>
         </ul>
       </article>
     </section>
 
-    <!-- SKILLS -->
-    <section aria-labelledby="skills">
-      <h2 id="skills">Skills</h2>
-      <p><strong>Programming:</strong> Python, SQL, JavaScript (D3.js)</p>
-      <p><strong>Machine Learning:</strong> Scikit-learn, PyTorch, Hugging Face Transformers, XGBoost, LightGBM, Recommendation Systems, NLP, Hyperparameter Tuning</p>
-      <p><strong>Data Processing:</strong> Pandas, NumPy, Apache Spark, ETL Pipelines, Large-scale Data Processing</p>
-      <p><strong>Tools:</strong> Git, Tableau</p>
+    <!-- EDUCATION -->
+    <section aria-labelledby="edu">
+      <h2 id="edu">Education</h2>
+
+      <!-- M.S. IN DATA SCIENCE -->
+      <article class="row">
+        <div class="left"><h3>M.S. in Data Science</h3></div>
+        <div class="right">
+          <p class="date"><time datetime="2026">2026</time></p>
+        </div>
+      </article>
+      <article class="row">
+        <div class="left">
+          <p class="degree-line"><em>University of California, San Diego</em></p>
+          <p class="degree-detail">GPA: 3.81</p>
+        </div>
+        <div class="right">
+          <p class="place">La Jolla, CA</p>
+        </div>
+      </article>
+
+      <!-- B.S. IN MANAGEMENT INFORMATION SYSTEMS -->
+      <article class="row">
+        <div class="left"><h3>B.S. in Management Information Systems, magna cum laude</h3></div>
+        <div class="right">
+          <p class="date"><time datetime="2024">2024</time></p>
+        </div>
+      </article>
+      <article class="row">
+        <div class="left">
+          <p class="degree-line"><em>California State University, Sacramento</em></p>
+        </div>
+        <div class="right">
+          <p class="place">Sacramento, CA</p>
+        </div>
+      </article>
+
+      <!-- ASSOCIATE DEGREES -->
+      <article class="row">
+        <div class="left">
+          <h3>A.S. in Accounting | A.S. in Business Administration</h3>
+        </div>
+        <div class="right">
+          <p class="date"><time datetime="2022">2022</time></p>
+        </div>
+      </article>
     </section>
 
     <!-- EXPERIENCE -->
@@ -144,10 +134,19 @@
         </div>
       </article>
       <ul class="bullets">
-        <li>Managed 7-person team distributing 50K+ cases/day for Coors, Modelo, and Corona brands.</li>
-        <li>Spearheaded new Warehouse Management Software (VIP EasyOps) implementation, modernized workflows.</li>
-        <li>Improved inventory accuracy 12% through better labeling, FIFO procedures, and discrepancy investigation.</li>
+        <li>Performed data analysis using WMS, inventory, shipment, and spreadsheet data to investigate discrepancies, conduct root cause analysis, and support inventory decisions</li>
+        <li>Led warehouse staff training during implementation of a new Warehouse Management System, supporting the transition from RF scanners to iPad-based workflows</li>
+        <li>Improved operations across receiving, storage, FIFO, and replenishment, contributing to a 12% improvement in inventory accuracy</li>
       </ul>
+    </section>
+
+    <!-- SKILLS -->
+    <section aria-labelledby="skills">
+      <h2 id="skills">Skills</h2>
+      <p><strong>Programming:</strong> Python, SQL</p>
+      <p><strong>Machine Learning:</strong> Scikit-learn, PyTorch, XGBoost, LightGBM, Hugging Face Transformers</p>
+      <p><strong>Methods:</strong> Statistics, Feature Engineering, Model Evaluation, Cross-Validation, Hyperparameter Tuning</p>
+      <p><strong>Data &amp; Tools:</strong> Pandas, NumPy, Apache Spark, PostgreSQL, Git, Jupyter</p>
     </section>
 
   </main>
@@ -155,7 +154,7 @@
     <!-- download link -->
   <footer class="cv">
     <div class="links">
-      <a href="./resume.pdf" download>Download Full Resume (PDF)</a>
+      <a href="./Resume.pdf" download>Download Full Resume (PDF)</a>
     </div>
   </footer>
 
